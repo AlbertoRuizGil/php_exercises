@@ -1,14 +1,48 @@
 <?php
-
     require("functions.php");
 
-    echo $_POST["name"];
+    $ruta = sys_get_temp_dir ();
 
-    /*echo <<<EOD
+    echo $ruta;
+    /*
+    if(is_uploaded_file($_FILES["photo"]["tmp_name"])){
 
-    $_FILES["name"]
+        $extension = explode("/",$_FILES["photo"]["type"]);
+        
 
+        if($extension[1] == "jpeg" || 
+        $extension[1] == "jpg" || 
+        $extension[1] == "gif"){
 
-EOD;*/
+            $newfilename= uniqid();
+            $route= "/archivos";
+
+            $newfilename = $newfilename . "." . $extension[1] . " ";
+
+            move_uploaded_file($_FILES["photo"]["tmp_name"], "./archivos/$newfilename");
+
+            echo <<<EOD
+
+                <p>$_POST[firstname]</p>
+                <p>$_POST[surname]</p>
+                <p>$_POST[street]</p>
+                <p>$_POST[cp]</p>
+
+                
+
+EOD;
+            //<img src="./archivos/$newfilename" alt="photo">
+
+        }else{
+            $extension[1] = strtoupper($extension[1]);
+            echo $extension[1] . " No es una extensión válida";
+        }
+        
+
+    }else{
+        echo "El archivo no fue enviado correctamente";
+    }
+
+    */
 
 ?>

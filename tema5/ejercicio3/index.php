@@ -9,13 +9,13 @@
 </head>
 <body>
 
-    <form action="procesing.php" method="post">
+    <form action="procesing.php" method="post" enctype="multipart/form-data">
         Nombre <br>
         <input type="text" name="firstname"><br>
         Apellidos <br>
         <input type="text" name="surname"><br>
         Calle <br>
-        <input type="text" name="streeet"><br>
+        <input type="text" name="street"><br>
         Código postal <br>
         <input type="text" name="cp"><br>
         Foto <br>
