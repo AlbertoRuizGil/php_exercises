@@ -1,10 +1,6 @@
 <?php
     require("functions.php");
 
-    $ruta = sys_get_temp_dir ();
-
-    echo $ruta;
-    /*
     if(is_uploaded_file($_FILES["photo"]["tmp_name"])){
 
         $extension = explode("/",$_FILES["photo"]["type"]);
@@ -17,7 +13,7 @@
             $newfilename= uniqid();
             $route= "/archivos";
 
-            $newfilename = $newfilename . "." . $extension[1] . " ";
+            $newfilename = $newfilename . "." . $extension[1];
 
             move_uploaded_file($_FILES["photo"]["tmp_name"], "./archivos/$newfilename");
 
@@ -28,10 +24,10 @@
                 <p>$_POST[street]</p>
                 <p>$_POST[cp]</p>
 
-                
+                <img src="./archivos/$newfilename" alt="photo">
 
 EOD;
-            //<img src="./archivos/$newfilename" alt="photo">
+            
 
         }else{
             $extension[1] = strtoupper($extension[1]);
@@ -42,7 +38,5 @@ EOD;
     }else{
         echo "El archivo no fue enviado correctamente";
     }
-
-    */
 
 ?>

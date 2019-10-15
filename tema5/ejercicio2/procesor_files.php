@@ -14,7 +14,7 @@
             
             echo $newfilename . "." . $extension[1];
 
-            $newfilename = $newfilename . "." . $extension[1] . " ";
+            $newfilename = $newfilename . "." . $extension[1];
 
             move_uploaded_file($_FILES["archivo"]["tmp_name"], "./archivos/$newfilename");
 
