@@ -1,8 +1,10 @@
 <?php
 
-    include("data.php");
+    require("data.php");
+    require("functions.php");
 
-    if(in_array(($_POST["identifier"]) , $users)) {
+
+    if(is_in_array_key($users, $_POST["identifier"])) {
 
         if($_POST["passwd"] == $users[$_POST["identifier"]]){
 

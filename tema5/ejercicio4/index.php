@@ -14,8 +14,8 @@
 
         <input type="text" name="firstname" placeholder="Nombre">
         <input type="text" name="surname" placeholder="Apellidos">
-    
-    
+
+        <input type="submit" value="send">
     
     </form>
     
