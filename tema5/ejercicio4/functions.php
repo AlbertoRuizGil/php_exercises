@@ -1,5 +1,6 @@
 <?php
 
+
     function is_in_array($people, $keycheck){
 
         foreach($people as $key => $value){
@@ -10,9 +11,5 @@
         return false;
     }
 
-
-    function paint_cv($people, $key){
-
-    }
-
 ?>
+
