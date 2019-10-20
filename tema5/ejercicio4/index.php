@@ -10,7 +10,7 @@
 
     <p>Introduce tu nombre y apellidos</p>
 
-    <form action="procesing.php" method="post">
+    <form action="./php/procesing.php" method="post">
 
         <input type="text" name="firstname" placeholder="Nombre">
         <input type="text" name="surname" placeholder="Apellidos">

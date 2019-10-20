@@ -23,3 +23,7 @@ section{
     border-radius: 1rem;
     padding: 2rem;
 }
+
+.curriculum p{
+    border-bottom: 0.1rem;
+}

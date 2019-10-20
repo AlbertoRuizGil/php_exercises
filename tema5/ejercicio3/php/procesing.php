@@ -5,6 +5,7 @@
 
         $firstname = cleanstring($_POST["firstname"]);
         $surname = cleanstring($_POST["surname"]);
+        $street =  cleanstring($_POST["street"]);
 
         $extension =  getextension($_FILES["photo"]["type"]);
 
@@ -17,14 +18,15 @@
             move_uploaded_file($_FILES["photo"]["tmp_name"], $route);
 
             echo <<<EOD
-
-                <div class="curriculum">
-                    <img src="$route" alt="photo">
-                    <p>$_POST[firstname]</p>
-                    <p>$_POST[surname]</p>
-                    <p>$_POST[street]</p>
-                    <p>$_POST[cp]</p>
-                </div>
+                <section>
+                    <div class="curriculum">
+                        <img src="$route" alt="photo">
+                        <p>$firstname</p>
+                        <p>$surname</p>
+                        <p>$street</p>
+                        <p>$_POST[cp]</p>
+                    </div>
+                </section>
 EOD;
 
         }else{

@@ -7,9 +7,9 @@
         //Elimina espacios en blanco finales e iniciales
         $str = trim($str);
         //Elimina caracteres con acento
-        $str = strtr( $str, $unwanted_array);
+        //$str = strtr( $str, $unwanted_array);
         //Convierte a minúsculas
-        $str = strtolower($str);
+        //$str = strtolower($str);
         //Convierte muchos espacios en blanco en uno solo
         $str = preg_replace("/[\s]+/", " ",$str);
 
@@ -34,7 +34,9 @@
     }
 
     function createnewfilename($firstname, $surname, $extension){
-        return $firstname . "-" . $surname . "." . $extension;
+        $arrDate = getdate();
+        $date = $arrDate["mday"] . "-" . $arrDate["mon"] . "-" . $arrDate["year"];
+        return $date . "_" . $firstname . " " . $surname . "." . $extension;
     }
 
     function createroute($newfilename){
