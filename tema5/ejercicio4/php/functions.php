@@ -3,6 +3,8 @@
 
     function cleanstring($str){
     
+        $problematicchar = array("<",">");
+        $str = str_replace($problematicchar, "", $str);
         //Elimina espacios en blanco finales e iniciales
         $str = trim($str);
         //Elimina caracteres con acento
@@ -15,14 +17,17 @@
         return $str;
     }
 
-    function isInBaseData($arr, $completename){
-        for($i = 0; $i < count($arr); $i++){
-            /*if($completename == takeonlyname($arr[$i])){
-                return true;
-            }*/
-            echo takeonlyname($arr[$i]);
+    function isInBaseData($arr, $completename, $flag){ //El flag si es true devuelve el nombre del archivo, si es false devuelve si el nombre se encuentra en la base de datos
+        for($i = 2; $i < count($arr); $i++){
+            if($completename == takeonlyname($arr[$i])){
+                if($flag == true){
+                    return $arr[$i];
+                }else{
+                    return true;
+                }
+            }
         }
-        //return false;
+        return false;
     }
 
     function takeonlyname($dateandname){

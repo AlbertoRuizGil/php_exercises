@@ -1,5 +1,5 @@
 <?php
 
-    define("DIRECTORY", "../../ejercicio3/archivos");
+    define("DIRECTORY", "../../ejercicio3/archivos/");
 
 ?>

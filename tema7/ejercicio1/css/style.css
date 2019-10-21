@@ -32,3 +32,11 @@ h1{
     margin: 3rem;
     font-size: 2rem;
 }
+
+.parrafo {
+    font-size: 2rem;
+}
+
+.subrayado {
+    background-color: yellow;
+}

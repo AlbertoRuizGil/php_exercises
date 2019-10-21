@@ -8,14 +8,21 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
+    <?php
 
-        <h1>procesador de texto</h1>
+        require("./php/functions.php");
+
+        if(!isset($_POST["buscar"])){
+
+            paintform();
+
+        }else{
+
+            
+        }
+
+    ?>
     
-        <textarea name="textbox" id="textbox" cols="30" rows="10" placeholder="Escribe tu texto"></textarea>
-        <input type="text" name="searchword" id="searchword">
-        <input type="submit" value="buscar" id="searchbtn">
-    
-    </form>
+
 </body>
 </html>

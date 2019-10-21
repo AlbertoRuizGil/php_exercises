@@ -2,8 +2,11 @@
 
     function cleanstring($str){
         
-        require("data.php");
+        //require("data.php");
         
+        //Elimina caracteres problemáticos
+        $problematicchar = array("<",">");
+        $str = str_replace($problematicchar, "", $str);
         //Elimina espacios en blanco finales e iniciales
         $str = trim($str);
         //Elimina caracteres con acento

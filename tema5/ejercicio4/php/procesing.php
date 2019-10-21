@@ -11,13 +11,14 @@
 
     $completename = $firstname . " " . $surname;
 
-    isInBaseData($ficheros, $completename);
 
-    /*if(isInBaseData($ficheros, $completename)){
+    if(isInBaseData($ficheros, $completename, false)){
 
-        echo "El usuario está en la base de datos";
+        $imgname = isInBaseData($ficheros, $completename, true);
+        echo "<img src='" . DIRECTORY. $imgname . "'>";
 
     }else{
         echo "El nombre introducido no se encuentra en la base de datos";
-    }*/
+    }
 ?>
+
