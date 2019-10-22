@@ -8,21 +8,15 @@
     <title>Document</title>
 </head>
 <body>
+    
     <?php
 
         require("./php/functions.php");
 
-        if(!isset($_GET["buscar"])){
-
-            paintlaterform();
-
-        }else{
-            
-            paintinitialform();
-        }
+        echo "Hoy es " . gettoday() . "<br>";
+        echo "Mañana será " . getnextday() . "<br>";
 
     ?>
-    
 
 </body>
 </html>
