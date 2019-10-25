@@ -3,8 +3,14 @@
     require("functions.php");
 
     $month = $_GET["month"];
+    $year = $_GET["year"];
 
-    $numbermonth = getNumberMonth($month);
+    $date = getDateCalendar($month,$year);
 
-    echo monthCalendar($numbermonth, "2019");
+    $dayweek = getDayWeek($date->format("N"));
+
+    $arrmonth = createarrmonth($dayweek, $date->format("t"));
+
+    paintCalendar($arrmonth);
+
 ?>
