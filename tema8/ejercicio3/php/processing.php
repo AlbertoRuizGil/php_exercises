@@ -1,16 +1,32 @@
 <?php
-
-    require("functions.php");
+    
+    require_once("functions.php");
+    require_once("check.php");
 
     $month = $_GET["month"];
     $year = $_GET["year"];
 
-    $date = getDateCalendar($month,$year);
+    $month = cleanstr($month);
+    $year = cleanstr($year);
 
-    $dayweek = getDayWeek($date->format("N"));
+    if(checkdateown($month, $year)){
 
-    $arrmonth = createarrmonth($dayweek, $date->format("t"));
+        if(is_numeric($month)){
+            $isnumber = true;
+        }else{
+            $isnumber = false;
+        }
 
-    paintCalendar($arrmonth);
+        $date = getDateCalendar($month,$year,$isnumber);
+
+        $dayweek = getDayWeek($date->format("N"));
+
+        $arrmonth = createarrmonth($dayweek, $date->format("t"));
+
+        paintCalendar($arrmonth);
+    }else{
+        echo "<br><a href='../index.php'>Volver</a>";
+    }
+    
 
 ?>

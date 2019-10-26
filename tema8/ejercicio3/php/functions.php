@@ -19,8 +19,12 @@ EOD;
         return $meses[$month];
     }
 
-    function getDateCalendar($month, $year){
-        $numbermonth = getNumberMonth($month);
+    function getDateCalendar($month, $year, $ismonthnumber){
+        if($ismonthnumber){
+            $numbermonth = $month;
+        }else{
+            $numbermonth = getNumberMonth($month);
+        }
         $date = new DateTime($year . "-" . $numbermonth . "-" . "01"); //dia 1 del mes
         return $date;
     }
