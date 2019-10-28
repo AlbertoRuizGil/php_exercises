@@ -1,5 +1,6 @@
 <?php
 
+    
     require("functions.php");
 
     $month = $_GET["month"];

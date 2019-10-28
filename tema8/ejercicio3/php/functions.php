@@ -3,14 +3,29 @@
     function paintInit(){
 
         echo <<<EOD
-        <form action="./php/processing.php" method="get">
+        <div class='form'>
+            <form action="" method="get">
 
-            <input type="text" name="month" placeholder="Escribe el mes en minúsculas">
-            <input type="text" name="year" placeholder="Escribe el año">
-            <input type="submit" value="Mostrar" name="submit">
+                <input type="text" name="month" placeholder="Escribe el mes en minúsculas">
+                <input type="text" name="year" placeholder="Escribe el año">
+                <input type="submit" value="Mostrar" name="submit">
 
-        </form>
+            </form>
+        </div>
 EOD;
+    }
+
+    function processing(){
+        $month = $_GET["month"];
+        $year = $_GET["year"];
+
+        $date = getDateCalendar($month,$year);
+
+        $dayweek = getDayWeek($date->format("N"));
+
+        $arrmonth = createarrmonth($dayweek, $date->format("t"));
+
+        paintCalendar($arrmonth);
     }
 
 
@@ -26,7 +41,7 @@ EOD;
     }
 
     function paintCalendar($arrmonth){
-        echo "<table>";
+        echo "<div class='mes'><table>";
         for($i=0; $i<count($arrmonth); $i++){
             echo "<tr>";
             for($j=0; $j<7; $j++){
@@ -44,7 +59,8 @@ EOD;
             }
             echo "</tr>";
         }
-        echo "</table>";
+        echo "</table></div>";
+
     }
 
     function getDayWeek($day){
@@ -54,7 +70,7 @@ EOD;
 
     function createarrmonth($dayweek, $daysofmonth){
 
-        $arrmonth[0]= array("L","M","X","J","V","S","D");
+        $arrmonth[0]= array("L","M","X","J","V","S","D"); //Inicio del calendario
         $j=0;
         
         while($arrmonth[0][$j]!=$dayweek){//inicio en blanco

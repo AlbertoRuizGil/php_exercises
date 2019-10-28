@@ -8,9 +8,27 @@ html{
     font-size: 10px;
 }
 
+.form{
+    margin-top: 10rem;
+    position: relative;
+}
+
+form{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.month{
+    margin-top: 3rem;
+
+}
+
 
 
 table,tr,td,th{
-    border: 0.1rem solid black;
+    font-size: 4rem;
+    border: 0.1rem solid red;
     border-collapse: collapse;
+    text-align: center;
 }

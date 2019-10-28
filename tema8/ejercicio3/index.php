@@ -16,6 +16,7 @@
             paintInit();
         }else{
             paintInit();
+            processing();
         }
 
     ?>
