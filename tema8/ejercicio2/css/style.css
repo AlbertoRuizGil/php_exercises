@@ -18,18 +18,25 @@ form{
     transform: translateX(-50%);;
 }
 
+.error{
+    position: absolute;
+    font-size: 4rem;
+    left: 50%;
+    top: 4rem;
+    transform: translateX(-50%);
+}
+
 .mes{
-    width: 30rem;
+    width: 25%;
     margin-top: 5rem;
     margin-bottom: 10rem;
-    margin-left: 2rem;
+    margin-left: 1rem;
     float: left;
 }
 
 .tablames{
-    margin-right;: 0;
+    margin: 0;
     font-size: 3rem;
-    clear: both;
 }
 
 .mes h1{

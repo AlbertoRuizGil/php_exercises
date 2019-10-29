@@ -16,7 +16,7 @@
             paintInit();
         }else{
             paintInit();
-            processing();
+            processingYear();
         }
 
     ?>

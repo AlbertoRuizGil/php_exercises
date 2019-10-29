@@ -1,13 +1,7 @@
 <?php
-<<<<<<< HEAD
-
-    
-    require("functions.php");
-=======
     
     require_once("functions.php");
     require_once("check.php");
->>>>>>> d84dc6f0658975f8a6d50aac93597de6e556f3ae
 
     $month = $_GET["month"];
     $year = $_GET["year"];

@@ -13,30 +13,29 @@
 EOD;
     }
 
-    function processing(){
+    function processingMonth($mes, $year){
+        require("data.php");
+        $date = getDateCalendar($meses[$mes],$year);
+        $dayweek = getDayWeek($date->format("N"));
+        $arrmonth = createarrmonth($dayweek, $date->format("t"));
+        paintCalendar($arrmonth, $mes);
+    }
+
+    function processingYear(){
         require("check.php");
         require("data.php");
 
         if(isset($_GET["year"])){
             $year = $_GET["year"];
-
             if(checkyear($year)){
-
                 foreach($meses as $mes=>$numero){
-    
-                    $date = getDateCalendar($numero,$year);
-        
-                    $dayweek = getDayWeek($date->format("N"));
-        
-                    $arrmonth = createarrmonth($dayweek, $date->format("t"));
-        
-                    paintCalendar($arrmonth, $mes);
+                    processingMonth($mes, $year);
                 }
             }else{
-                echo "<h1>'" . $year . "' No es un año válido</h1>";
+                echo "<h1 class='error'>'" . $year . "' No es un año válido</h1>";
             }
         }else{
-            echo "<h1>Debes introducir un año</h1>";
+            echo "<h1 class='error'>Debes introducir un año</h1>";
         }
     }
 
@@ -55,12 +54,12 @@ EOD;
         for($i=0; $i<count($arrmonth); $i++){
             echo "<tr>";
             for($j=0; $j<7; $j++){
-                if($arrmonth[$i][$j]!=0 || is_string($arrmonth[$i][$j])){
+                if($arrmonth[$i][$j]!=0 || is_string($arrmonth[$i][$j])){ 
                     if(($j==5 || $j==6) && $i!=0){
                         echo "<td class='finde'>" . $arrmonth[$i][$j] . "</td>"; //si es fin de semana
                     }else if($i==0){
                         echo "<th>" . $arrmonth[$i][$j] . "</th>";
-                    }else{
+                    }else{ //Si está vacio el elemento
                         echo "<td>" . $arrmonth[$i][$j] . "</td>";
                     }
                 }else{
