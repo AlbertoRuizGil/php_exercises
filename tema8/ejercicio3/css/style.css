@@ -7,6 +7,13 @@
 html{
     font-size: 10px;
 }
+h1{
+    position: absolute;
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4rem;
+}
 
 .form{
     margin-top: 10rem;
@@ -19,16 +26,33 @@ form{
     transform: translateX(-50%);
 }
 
-.month{
-    margin-top: 3rem;
-
+.mes{
+    position: relative;
 }
 
+.mes h1{
+    font-size: 4rem;
+    text-transform: uppercase;
+    position: absolute;
+    left: 50%;
+    top: 5rem;
+    transform: translateX(-50%);
+}
 
+table{
+    position: absolute;
+    left: 50%;
+    top: 15rem;
+    transform: translateX(-50%);
+}
+
+.finde{
+    color: red;
+}
 
 table,tr,td,th{
     font-size: 4rem;
-    border: 0.1rem solid red;
+    border: 0.3rem solid black;
     border-collapse: collapse;
     text-align: center;
 }

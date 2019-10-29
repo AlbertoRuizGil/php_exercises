@@ -4,43 +4,39 @@
         require("data.php");
 
         echo <<<EOD
-        <form action="" method="GET">
-            <select name="month">
-            <option selected="selected" disabled>mes</option>
-EOD;
-        foreach($meses as $mes=>$numero){
-            echo "<option value='$mes'>$mes</option>";
-        }
-        echo "</select>";
-        echo <<<EOD
-            <input type='text' name='year'>
-            
-            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-        </form>
+        <div class='form'>
+            <form action="" method="GET">
+                <input type='text' name='year' placeholder='Introduzca el año'>
+                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
 EOD;
     }
 
     function processing(){
         require("check.php");
+        require("data.php");
 
-        if(isset($_GET["month"])){
-            $month = $_GET["month"];
+        if(isset($_GET["year"])){
             $year = $_GET["year"];
 
             if(checkyear($year)){
-            
-                $date = getDateCalendar($month,$year);
 
-                $dayweek = getDayWeek($date->format("N"));
-
-                $arrmonth = createarrmonth($dayweek, $date->format("t"));
-
-                paintCalendar($arrmonth, $month);
+                foreach($meses as $mes=>$numero){
+    
+                    $date = getDateCalendar($numero,$year);
+        
+                    $dayweek = getDayWeek($date->format("N"));
+        
+                    $arrmonth = createarrmonth($dayweek, $date->format("t"));
+        
+                    paintCalendar($arrmonth, $mes);
+                }
             }else{
                 echo "<h1>'" . $year . "' No es un año válido</h1>";
             }
         }else{
-            echo "<h1>Debes seleccionar un mes</h1>";
+            echo "<h1>Debes introducir un año</h1>";
         }
     }
 
@@ -49,20 +45,13 @@ EOD;
         return $daysweeknumbers[$day];
     }
 
-
-    function getNumberMonth($month){
-        require("data.php");
-        return $meses[$month];
-    }
-
     function getDateCalendar($month, $year){
-        $numbermonth = getNumberMonth($month);
-        $date = new DateTime($year . "-" . $numbermonth . "-" . "01"); //dia 1 del mes
+        $date = new DateTime($year . "-" . $month . "-" . "01"); //dia 1 del mes
         return $date;
     }
 
     function paintCalendar($arrmonth, $month){
-        echo "<div class='mes'><h1>" . $month .  "</h1><table>";
+        echo "<div class='mes'><h1>" . $month .  "</h1><table class='tablames'>";
         for($i=0; $i<count($arrmonth); $i++){
             echo "<tr>";
             for($j=0; $j<7; $j++){
