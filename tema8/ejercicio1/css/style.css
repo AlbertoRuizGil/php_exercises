@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 10px;
+}
+
+table,tr,td{
+    border: 0.2rem solid black;
+    border-collapse: collapse;
+    font-size: 2rem;
+}
+
+.tabla{
+
+    margin: 0 auto;
+}

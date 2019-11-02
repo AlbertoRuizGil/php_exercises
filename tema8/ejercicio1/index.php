@@ -13,8 +13,22 @@
 
         require("./php/functions.php");
 
-        echo "Hoy es " . getdatenew("May") . "<br>";
+        echo "<table class='tabla'>
+                <tr>
+                    <td>Fecha de hoy</td>
+                    <td>" . getdatenew() . "</td>
+                </tr>";
 
+        echo "<tr>
+                <td>Fecha de mañana</td>
+                <td>" . getdatenew("d+1") . "</td>
+            </tr>";
+
+        echo "<tr>
+                <td>Fecha del lunes siguiente</td>
+                <td>" . getdatenew("next monday") . "</td>
+            </tr>
+            </table>";
 
     ?>
 
