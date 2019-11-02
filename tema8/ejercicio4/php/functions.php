@@ -13,10 +13,10 @@
 EOD;
     }
 
-    function processingMonth($mes, $year){
-        require("data.php");
+    function processingMonth($mes){
+        $year = $_GET["year"];
         $date = DateTime::createFromFormat('d-M-Y', '01-' . $mes . '-' . $year);
-        $dayweek = getDayWeek($date->format("N"));
+        $dayweek = getDayWeek($date->format('N'));
         $arrmonth = createarrmonth($dayweek, $date->format("t"));
         paintCalendar($arrmonth, $mes);
     }
@@ -29,7 +29,7 @@ EOD;
             $year = $_GET["year"];
             if(checkyear($year)){
                 echo "<div class='grid-container'>";
-                array_walk($meses, 'processingMonth')($year);
+                array_walk($meses, 'processingMonth');
                 echo "</div>";
             }else{
                 echo "<h1 class='error'>'" . $year . "' No es un año válido</h1>";

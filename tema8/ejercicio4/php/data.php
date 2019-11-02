@@ -12,7 +12,7 @@
         "Sep",
         "Oct",
         "Nov",
-        "Dic"
+        "Dec"
     );
 
     $daysweeknumbers = array(
