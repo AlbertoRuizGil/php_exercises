@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+}
+
+.language{
+    margin: 10rem 0 10rem 50%;
+    transform: translateX(-40%);
+    width: 50rem;
+}
+
+.language select{
+    border-radius: 5rem;
+    height: 3rem;
+    background-color: cornflowerblue;
+}
+
+.language input{
+    border-radius: 0.5rem;
+    width: 10rem;
+    height: 3rem;
+}
+
+.login{
+    margin-left: 50%;
+    padding: 1rem;
+    font-size: 3rem;
+    transform: translateX(-50%);
+    width: 20rem;
+    border: 0.1rem solid black;
+}
+
+.login p{
+    margin-bottom: 1rem;
+    
+}

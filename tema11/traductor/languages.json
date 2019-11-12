@@ -7,7 +7,18 @@
       },
       "font": { "label": "Color de fuente:" },
       "background": { "label": "Color de fondo:" },
-      "submit": { "label": "Guardar" }
+      "colors": {
+        "blue": "azul",
+        "yellow": "amarillo",
+        "red": "rojo",
+        "green": "verde"
+      },
+      "submit": { "label": "Guardar" },
+      "login": {
+        "user": "Usuario",
+        "passwd": "Contraseña",
+        "submit": "Enviar"
+      }
     },
     "en": {
       "title": { "label": "Select your settings" },
@@ -17,6 +28,17 @@
       },
       "font": { "label": "Font color:" },
       "background": { "label": "Background color:" },
-      "submit": { "label": "Save" }
+      "colors": {
+        "blue": "blue",
+        "yellow": "yellow",
+        "red": "red",
+        "green": "green"
+      },
+      "submit": { "label": "Save" },
+      "login": {
+        "user": "User",
+        "passwd": "Password",
+        "submit": "Send"
+      }
     }
 }
