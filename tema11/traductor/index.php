@@ -7,18 +7,22 @@
     <title>Document</title>
 </head>
 <body>
+    <?php
+
+        require("./functions.php");
+
+        if(!isset($_COOKIE["language"])){
+            $default = "es";
+            p
+        }
+
     
-    <img src="imagecreator.php">
 
-    <form action="utilities.php" method="post">
-        <input type="text" name="passwd">
-        <input type="submit" value="Enviar">
-    </form>
-
-
-    
+    ?>
 </body>
 </html>
+
+
 
 
 

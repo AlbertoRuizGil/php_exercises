@@ -1,8 +1,9 @@
 <?php
+
+        require("createword.php");
         $im = imagecreatefromjpeg("./images/fondo.jpeg");
         $color = imagecolorexact($im, 255, 0, 0);
 
-        $word = "alcatr";
         $leters = array();
         $font = realpath("./fonts/OpenSans-Regular.ttf");
 
