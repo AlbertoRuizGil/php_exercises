@@ -1,0 +1,50 @@
+{
+    "es": {
+      "title": { "label": "Selecciona tu configuraci\u00f3n" },
+      "select": {
+        "label": "Idioma:",
+        "options": { "es": "Espa\u00f1ol", "en": "Ingles" }
+      },
+      "font": { "label": "Color de fuente:" },
+      "background": { "label": "Color de fondo:" },
+      "colors": {
+        "blue": "azul",
+        "yellow": "amarillo",
+        "red": "rojo",
+        "green": "verde"
+      },
+      "submit": { "label": "Guardar" },
+      "login": {
+        "user": "Usuario",
+        "passwd": "Contraseña",
+        "submit": "Enviar"
+      },
+      "back": {
+        "submit":"Configuración"
+      }
+    },
+    "en": {
+      "title": { "label": "Select your settings" },
+      "select": {
+        "label": "Language:",
+        "options": { "en": "English", "es": "Spanish" }
+      },
+      "font": { "label": "Font color:" },
+      "background": { "label": "Background color:" },
+      "colors": {
+        "blue": "blue",
+        "yellow": "yellow",
+        "red": "red",
+        "green": "green"
+      },
+      "submit": { "label": "Save" },
+      "login": {
+        "user": "User",
+        "passwd": "Password",
+        "submit": "Send"
+      },
+      "back": {
+        "submit":"Configuration"
+      }
+    }
+}

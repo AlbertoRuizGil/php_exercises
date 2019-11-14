@@ -10,15 +10,17 @@
 <body>
   <?php
     require("./functions.php");
-    if(isset($_POST["language"])){
-      paintForm($_POST["language"]);
-    } else if(isset($_COOKIE["language"])){
-      paintForm($_COOKIE["language"]);
+    if(isset($_POST["language"]) && 
+      isset($_POST["font"]) && 
+      isset($_POST["background"])){
+        paintForm($_POST["language"], $_POST["font"], $_POST["background"]);
+    } else if(isset($_COOKIE["language"]) && 
+      isset($_COOKIE["font"]) && 
+      isset($_COOKIE["background"])){
+        paintForm($_COOKIE["language"], $_COOKIE["font"], $_COOKIE["background"]);
     }else{
-      $default = "es";
-      paintForm($default);
+      paintForm();
     }
-  
   ?>
 </body>
 </html>

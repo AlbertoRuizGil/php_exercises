@@ -6,15 +6,17 @@
         return $languages[$language];
     }
 
-    function paintForm($language){
+    function paintForm($language="es", $font="black", $background="white"){
 
         $selectedlanguage = getJSON($language);
         setcookie("language", $language, time()+60);
+        setcookie("font", $font, time()+60);
+        setcookie("background", $background, time()+60);
         
         //Pîntamos el formulario de configuración
         echo <<<EOD
 
-        <div class="language">
+        <div class="options">
             <form action="" method="post">
 
                 <select name="language">
@@ -23,13 +25,13 @@
                     <option value="en">{$selectedlanguage['select']['options']['en']}</option>
                 </select>
 
-                <select label="font">
+                <select name="font">
                     <option disabled selected>{$selectedlanguage['font']['label']}</option>
                     <option value="yellow">{$selectedlanguage['colors']['yellow']}</option>
                     <option value="blue">{$selectedlanguage['colors']['blue']}</option>
                 </select>
 
-                <select label="background">
+                <select name="background">
                     <option disabled selected>{$selectedlanguage['background']['label']}</option>
                     <option value="red">{$selectedlanguage['colors']['red']}</option>
                     <option value="green">{$selectedlanguage['colors']['green']}</option>
@@ -44,7 +46,7 @@ EOD;
 
         echo <<<EOD
 
-        <div class="login">
+        <div class="login" style="color:$font;background-color:$background">
 
             <form action="" method="post">
 
