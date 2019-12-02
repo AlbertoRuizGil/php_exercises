@@ -1,0 +1,22 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 10px;
+}
+
+body{
+  background-color: darkslateblue;
+}
+
+.maintitle{
+  margin: 0 auto;
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 5rem;
+  border-bottom: 5px solid black;
+  width: 40rem;
+}
