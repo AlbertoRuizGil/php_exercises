@@ -14,10 +14,11 @@
 </head>
 <body>
 
-  <h1 class="maintitle">AHORCADO</h1>
+  <?php
 
-  <div class=""></div>
-  
+    paintFront();
+
+  ?>
   
 </body>
 </html>

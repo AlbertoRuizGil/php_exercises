@@ -1,6 +1,6 @@
 <?php
 
-  $words = array("rana", "conejo", "zebra", "gallina", "caballo", "jirafa", "elefante");
+  $words = array("RANA", "CONEJO", "ZEBRA", "GALLINA", "CABALLO", "JIRAFA", "ELEFANTE");
 
   $letters = array("A", "B", "C", "D", "E", "F", 
   "G", "H", "I", "J", "K", "L", 

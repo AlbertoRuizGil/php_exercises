@@ -13,10 +13,19 @@ body{
 }
 
 .maintitle{
-  margin: 0 auto;
-  margin-top: 3rem;
+  margin: 3rem auto;
   text-align: center;
   font-size: 5rem;
   border-bottom: 5px solid black;
   width: 40rem;
+}
+
+.keyboard{
+  margin: 3rem auto;
+  font-size: 2rem;
+}
+
+.keyboard input{
+  font-size: 3rem;
+  margin: 1rem;
 }

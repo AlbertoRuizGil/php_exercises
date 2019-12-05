@@ -35,21 +35,13 @@ EOD;
     $oksurname="ok";
     $okpasswd="ok";
     $okemail="ok";
-    $controlName = function ($name){
-      require("data.php");
-      $name=trim($name);
-      $name=str_split($name);
-      for($i=0; $i<count($name); $i++){
-        if(!in_array($name[$i], $allowedchar)){
-          return "invalid";
-        }
-      }
-      return "ok";
-    };
 
-    $namearr=control("name",$controlName);
+    $namearr=control("name","controlName");
+    $surnamearr=control("surname","controlName");
+    $passwdarr=control("passwd", "controlPasswd");
+    $emailarr=control("email","controlEmail");
 
-    paintForm($namearr[0], $okpasswd, $okpasswd, $okemail, $namearr[1], $surname, $passwd, $email);
+    paintForm($namearr[0], $surnamearr[0], $passwdarr[0], $emailarr[0], $namearr[1], $surnamearr[1], $passwdarr[1], $emailarr[1]);
     
   }
 
@@ -68,7 +60,7 @@ EOD;
     return $fieldarr;
   }
 
-  $controlName = function ($name){
+  function controlName($name){
     require("data.php");
     $name=trim($name);
     $name=str_split($name);
@@ -80,19 +72,29 @@ EOD;
     return "ok";
   };
 
-
-  function controlEmail($email){
-    require("data.php");
-    if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+  function controlPasswd($passwd){
+    if(strlen($passwd)<6){
       return "invalid";
     }else{
       return "ok";
     }
   }
 
+  function controlEmail($email){
+    require("data.php");
+    if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+      return "ok";
+    }else{
+      return "invalid";
+    }
+  }
+
+  
   function controlGenre(){
 
   }
+
+
 
 
 ?>
