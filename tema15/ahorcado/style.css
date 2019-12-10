@@ -12,6 +12,22 @@ body{
   background-color: darkslateblue;
 }
 
+/*Start page*/
+
+.start{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.start-btn{
+  font-size: 3rem;
+  border-radius: 1rem;
+  width: 20rem;
+  background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+
 .maintitle{
   margin: 3rem auto;
   text-align: center;
@@ -22,10 +38,30 @@ body{
 
 .keyboard{
   margin: 3rem auto;
-  font-size: 2rem;
+  width: 90rem;
 }
 
-.keyboard input{
+.keyboard-visible{
   font-size: 3rem;
   margin: 1rem;
+  width: 8rem;
+  border-radius: 2rem;
+  background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+
+.keyboard-disabled{
+  display: none;
+}
+
+.exit{
+  margin: 3rem auto;
+  width: 10rem;
+}
+
+.exit-btn{
+  font-size: 3rem;
+  margin: 1rem;
+  width: 8rem;
+  border-radius: 2rem;
+  background-image: linear-gradient(red, yellow);
 }

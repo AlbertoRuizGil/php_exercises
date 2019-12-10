@@ -7,7 +7,7 @@
       <div class="word"></div>
 
       <div class="keyboard">
-        <form method="post">
+        <form method="post" action="process.php">
 EOD;
     paintKeyboard();
 
@@ -20,20 +20,31 @@ EOD;
   }
 
   function paintWord(){
+    $word = $_SESSION["word"];
+    $word = str_split($word);
+    for($i=0; $i<count($word); $i++){
+      
+    }
 
   }
 
   function paintKeyboard(){
     require("data.php");
-    //Eliminar el array más tarde
-    $arraydeteclaspulsadas= array("");
     $disabled="";
     for($i=0; $i<count($letters); $i++){
-      if(!in_array($letters[$i], $arraydeteclaspulsadas)){
+      if(in_array($letters[$i], $_SESSION["pushedkeys"])){
         $disabled = "disabled";
+      }else{
+        $disabled = "visible";
       }
-      echo "<input type='submit' name='" . $letters[$i] . "' value='" . $letters[$i] . "' " . $disabled . ">";
+      echo "<input type='submit' name='char' value='" . $letters[$i] . "' class='keyboard-" . $disabled . "'>";
     }
+  }
+
+  function randomWord(){
+    require("data.php");
+    $numrand = rand(0, (count($words)-1));
+    return $words[$numrand];
   }
 
 ?>

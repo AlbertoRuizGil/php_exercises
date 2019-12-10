@@ -1,8 +1,3 @@
-<?php
-  require("data.php");
-  require("functions.php");
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,11 +9,12 @@
 </head>
 <body>
 
-  <?php
-
-    paintFront();
-
-  ?>
+  <div class="start">
+    <form method="post" action="ahorcado.php">
+      <input type="submit" value="Empezar" class="start-btn">
+    </form>
+  </div>
+  
   
 </body>
 </html>
