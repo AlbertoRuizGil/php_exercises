@@ -1,0 +1,31 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 10px;
+}
+
+.form{
+  margin: 4rem auto;
+  border: solid 1px black;
+  font-size: 2rem;
+  width: 50rem;
+  padding: 2rem;
+}
+.form-book {
+  margin: 2rem 0;
+}
+
+.form-customer{
+  margin: 2rem 0;
+}
+
+
+
+.submit-btn{
+  border-radius: 2rem;
+  width: 5rem;
+}
