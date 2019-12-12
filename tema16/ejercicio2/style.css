@@ -23,9 +23,35 @@ html{
   margin: 2rem 0;
 }
 
-
-
 .submit-btn{
   border-radius: 2rem;
   width: 5rem;
+}
+
+.register-field{
+  margin: 3rem auto;
+  border: solid 1px black;
+  width: 40rem;
+  padding: 1.5rem;
+}
+
+.register-field-title{
+  margin: 1rem 0;
+  font-size: 4rem;
+}
+
+.register-field-table{
+  margin: 1rem 0;
+  font-size: 2rem;
+}
+
+table, td, tr{
+  border: solid 1px black;
+  border-collapse: collapse;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+table{
+  margin: 0 auto;
 }

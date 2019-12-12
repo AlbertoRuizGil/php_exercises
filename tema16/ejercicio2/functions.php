@@ -10,7 +10,7 @@
           <label for="author">Author</label></br>
           <input type="text" name="author"></br>
           <label for="title">Title</label></br>
-          <input type="text" name="title">
+          <input type="text" name="title"></br>
           <label for="isbn">ISBN</label></br>
           <input type="text" name="isbn">
         </div>
@@ -36,9 +36,10 @@ EOD;
   }
 
   function completeBook(){
-    if(isset($_POST["author"]) &&
-    isset($_POST["title"]) &&
-    isset($_POST["isbn"])){
+    if($_POST["author"]!="" &&
+    $_POST["title"]!="" &&
+    $_POST["isbn"]!=""
+    ){
       return true;
     }else{
       return false;
@@ -46,9 +47,9 @@ EOD;
   }
 
   function completeCustomer(){
-    if(isset($_POST["name"]) &&
-    isset($_POST["surname"]) &&
-    isset($_POST["email"]) &&
+    if($_POST["name"]!="" &&
+    $_POST["surname"]!="" &&
+    $_POST["email"]!=""
     ){
       return true;
     }else{
@@ -57,7 +58,7 @@ EOD;
   }
 
   function registerCustomer(){
-    $customer = new Customer($_POST["name"],$_POST["suname"],$_POST["email"]);
+    $customer = new Customer($_POST["name"],$_POST["surname"],$_POST["email"]);
     return $customer;
   }
 
@@ -68,22 +69,62 @@ EOD;
 
   function paintTableCustomer($customer){
     echo <<<EOD
-    <table>
-      <tr>
-        <td>ID</td>
-        <td>Name</td>
-        <td>Surname</td>
-        <td>Email</td>
-      </tr>
-      <tr>
-        <td>$customer->id</td>
-        <td>$customer->name</td>
-        <td>$customer->surname</td>
-        <td>$customer->email</td>
-      </tr>
-    </table>
+    <div class='register-field-table'>
+      <table>
+        <tr>
+          <td>ID</td>
+          <td>Name</td>
+          <td>Surname</td>
+          <td>Email</td>
+        </tr>
+        <tr>
+          <td>$customer->id</td>
+          <td>$customer->name</td>
+          <td>$customer->surname</td>
+          <td>$customer->email</td>
+        </tr>
+      </table>
+    </div>
 
 EOD;
+  }
+
+  function paintTableBook($book){
+    echo <<<EOD
+    <div class='register-field-table'>
+      <table>
+        <tr>
+          <td>Author</td>
+          <td>Title</td>
+          <td>ISBN</td>
+        </tr>
+        <tr>
+          <td>$book->author</td>
+          <td>$book->title</td>
+          <td>$book->isbn</td>
+        </tr>
+      </table>
+    </div>
+
+EOD;
+  }
+
+  function addCustomer($customer){
+    $str_datos = file_get_contents("datacustomers.json");
+    $datos = json_decode($str_datos,true);
+    echo "Estos son los datos: " . $datos;
+    $long = count($datos[0]);
+
+    $datos[0][$long]=array(
+    "id"=>$customer->id,
+    "name"=>$customer->name,
+    "surname"=>$customer->surname,
+    "email"=>$customer->email);
+
+    $fh = fopen("datacustomers_out.json", 'w')
+      or die("Error al abrir fichero de salida");
+    fwrite($fh, json_encode($datos, JSON_UNESCAPED_UNICODE));
+    fclose($fh);
   }
 
 ?>

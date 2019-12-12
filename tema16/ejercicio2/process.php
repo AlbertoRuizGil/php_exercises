@@ -10,22 +10,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
 <body>
+<div class="register">
 <?php
-  
-  $cusright = completeCustomer();
-  $bookright = completeBook();
 
   if(completeCustomer()){
+    echo "<div class='register-field'>";
     $customer = registerCustomer();
-    
+    addCustomer($customer);
+    echo "<h1 class='register-field-title'>Se ha registrado un cliente</h1>";
+    paintTableCustomer($customer);
+    echo "</div>";
   }
 
   if(completeBook()){
+    echo "<div class='register-field'>";
     $book = registerBook();
-    echo $book;
+    echo "<h1 class='register-field-title'>Se ha registrado un libro</h1>";
+    paintTableBook($book);
+    echo "</div>";
   }
 
 
@@ -33,6 +39,7 @@
 
 
 ?>
+</div>
 </body>
 </html>
 
