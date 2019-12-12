@@ -2,9 +2,13 @@
 
   function paintFront(){
     echo <<<EOD
-      <h1 class="maintitle">AHORCADO</h1>
 
-      <div class="word"></div>
+      <div class="word">
+EOD;
+      paintWord();      
+      
+    echo <<<EOD
+      </div>
 
       <div class="keyboard">
         <form method="post" action="process.php">
@@ -16,16 +20,27 @@ EOD;
       </div>
 
       <div class="drawing"></div>
+
+      <div class="fails">
 EOD;
+
+    paintFails();
+
+    echo "</div>";
+
   }
 
   function paintWord(){
     $word = $_SESSION["word"];
-    $word = str_split($word);
     for($i=0; $i<count($word); $i++){
-      
+      echo "<div class='word-letter'>";
+      if(in_array($word[$i], $_SESSION["pushedkeys"])){
+        echo $word[$i];
+      }else{
+        echo "_";
+      }
+      echo "</div>";
     }
-
   }
 
   function paintKeyboard(){
@@ -41,13 +56,28 @@ EOD;
     }
   }
 
+  function paintFails(){
+    echo "<div class='fails-count'>" . $_SESSION["fails"] . " (MAX 5 FAILS)</div>";
+  }
+
   function randomWord(){
     require("data.php");
     $numrand = rand(0, (count($words)-1));
-    return $words[$numrand];
+    $randword = $words[$numrand];
+    $arrword = str_split($randword);
+    return $arrword;
+  }
+
+  function checkOver(){
+    $word = $_SESSION["word"];
+    for($i=0; $i<count($word); $i++){
+      if(!in_array($word[$i], $_SESSION["pushedkeys"])){
+        return false;
+      }
+    }
+    return true;
   }
 
 ?>
 
-</form>
 

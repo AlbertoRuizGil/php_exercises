@@ -29,14 +29,31 @@ body{
 }
 
 .maintitle{
-  margin: 3rem auto;
+  margin: 20rem auto;
   text-align: center;
   font-size: 5rem;
+  font-family: 'Mansalva', cursive;
   border-bottom: 5px solid black;
   width: 40rem;
 }
 
+/*Ahorcado*/
+
+  /*Word*/
+.word{
+  margin: 4rem auto;
+  text-align: center;
+}
+
+.word-letter{
+  margin: 1rem;
+  float: left;
+  font-size: 8rem;
+}
+  /*End Word*/
+  /*Keyboard*/
 .keyboard{
+  clear: both;
   margin: 3rem auto;
   width: 90rem;
 }
@@ -52,7 +69,21 @@ body{
 .keyboard-disabled{
   display: none;
 }
+  /*End Keyboard*/
 
+  /*Fails*/
+
+.fails{
+  margin: 2rem auto;
+}
+
+.fails-count{
+  font-size: 8rem;
+}
+
+  /*End Fails*/
+
+  /*Exit btn*/
 .exit{
   margin: 3rem auto;
   width: 10rem;
@@ -65,3 +96,16 @@ body{
   border-radius: 2rem;
   background-image: linear-gradient(red, yellow);
 }
+  /*End Exit btn*/
+
+  /*Lose*/
+
+.lose-title{
+  text-align: center;
+  margin: 10rem 0;
+  font-size: 10rem;
+}
+
+  /*End Lose*/
+
+/*End Ahorcado*/

@@ -27,14 +27,6 @@ EOD;
   }
 
   function generalControl(){
-    $name="";
-    $surname="";
-    $passwd="";
-    $email="";
-    $okname="ok";
-    $oksurname="ok";
-    $okpasswd="ok";
-    $okemail="ok";
 
     $namearr=control("name","controlName");
     $surnamearr=control("surname","controlName");

@@ -19,12 +19,17 @@
     if(!isset($_SESSION["word"])){
       $_SESSION["word"]=randomWord();
       $_SESSION["pushedkeys"] = array();
+      $_SESSION["fails"]=0;
     }
 
-
-
-
-    paintFront();
+    
+    if(checkOver()){
+      echo "<h1 class='lose-title'> YOU WIN </h1>";
+    }else if($_SESSION["fails"]>=$MAXFAILS){
+      echo "<h1 class='lose-title'> YOU LOSE </h1>";
+    }else{
+      paintFront();
+    }
 
   ?>
 

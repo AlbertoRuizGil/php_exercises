@@ -6,8 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <h1 class="maintitle">AHORCADO</h1>
 
   <div class="start">
     <form method="post" action="ahorcado.php">
