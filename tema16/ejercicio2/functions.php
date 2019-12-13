@@ -30,8 +30,11 @@
         </div>
 
       </form>
-    </div>
 
+      <form action="readjson.php">
+        <input type="submit" class="submit-btnread" name="submit" value="See DataBase">
+      </form>
+    </div>
 EOD;
   }
 
@@ -57,14 +60,17 @@ EOD;
     }
   }
 
-  function registerCustomer(){
-    $customer = new Customer($_POST["name"],$_POST["surname"],$_POST["email"]);
-    return $customer;
-  }
-
-  function registerBook(){
-    $book = new Book($_POST["author"],$_POST["title"],$_POST["isbn"]);
-    return $book;
+  function takeNextCustomerID(){
+    $datos = readJSON('./datacustomers.json');
+    if($datos == null){
+      $id = 1;
+    }else{
+      $long = count($datos);
+      $id = $datos[$long - 1]["id"];
+      $id++;
+    }
+    
+    return $id;
   }
 
   function paintTableCustomer($customer){
@@ -109,24 +115,42 @@ EOD;
 EOD;
   }
 
-  function addCustomer($customer){
-    $str_datos = file_get_contents("datacustomers.json");
-    $datos = json_decode($str_datos,true);
-    echo "Estos son los datos: " . $datos;
-    $long = count($datos[0]);
+  function readJSON($url){
+    $str_datos = file_get_contents($url);
+    $datos = json_decode($str_datos, true);
+    return $datos;
+  }
 
-    $datos[0][$long]=array(
+  function addCustomer($customer){
+    $datos = readJSON('./datacustomers.json');
+    $long = count($datos);
+
+    $datos[$long]=array(
     "id"=>$customer->id,
     "name"=>$customer->name,
     "surname"=>$customer->surname,
     "email"=>$customer->email);
 
-    $fh = fopen("datacustomers_out.json", 'w')
+    $fh = fopen("datacustomers.json", 'w')
       or die("Error al abrir fichero de salida");
     fwrite($fh, json_encode($datos, JSON_UNESCAPED_UNICODE));
     fclose($fh);
   }
 
+  function addBook($book){
+    $datos = readJSON('./databooks.json');
+    $long = count($datos);
+
+    $datos[$long]=array(
+    "author"=>$book->author,
+    "title"=>$book->title,
+    "isbn"=>$book->isbn);
+
+    $fh = fopen("databooks.json", 'w')
+      or die("Error al abrir fichero de salida");
+    fwrite($fh, json_encode($datos, JSON_UNESCAPED_UNICODE));
+    fclose($fh);
+  }
 ?>
 
 

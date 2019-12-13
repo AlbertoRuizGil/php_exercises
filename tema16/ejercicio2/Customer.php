@@ -5,10 +5,9 @@
     public $name;
     public $surname;
     public $email;
-    private static $lastid=0;
 
-    public function __construct($name, $surname, $email){
-      $this->id = ++self::$lastid;
+    public function __construct($id, $name, $surname, $email){
+      $this->id = $id;
       $this->name = $name;
       $this->surname = $surname;
       $this->email = $email;
@@ -19,7 +18,7 @@
       name: " . $this->name . ",
       surname: " . $this->surname . ",
       email: " . $this->email;
-    } 
+    }
   }
 
 ?>

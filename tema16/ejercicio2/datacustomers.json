@@ -1,8 +1,20 @@
-{
-    {
-      "id": "0",
-      "name": "Alberto",
-      "surname": "Ruiz",
-      "email": "alberto@gmail.com"
-    }
-}
+[
+  {
+    "id": 5,
+    "name": "Alberto",
+    "surname": "Ruiz",
+    "email": "alberto@gmail.com"
+  },
+  {
+    "id": 6,
+    "name": "Antonio",
+    "surname": "Perez",
+    "email": "anper@gmail.com"
+  },
+  {
+    "id": 7,
+    "name": "Pablo",
+    "surname": "Rodriguez",
+    "email": "paroar@gmail.com"
+  }
+]

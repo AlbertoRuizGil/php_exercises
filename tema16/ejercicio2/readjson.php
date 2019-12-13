@@ -2,6 +2,7 @@
   require("functions.php");
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +13,15 @@
   <title>Document</title>
 </head>
 <body>
-  <?php
-    paintForm();
-  ?>
+
+<?php
+
+  $customers = readJSON('./datacustomers.json');
+  $books = readJSON('./databooks.json');
+
+  echo "HOLA DESDE READJSON.PHP";
+
+?>
+  
 </body>
 </html>

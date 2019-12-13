@@ -16,6 +16,7 @@
        title: " . $this->title . ", 
        isbn: " . $this->isbn;
     }
+
   }
 
 ?>
