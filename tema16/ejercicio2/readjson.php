@@ -1,7 +1,6 @@
 <?php
-  require("functions.php");
+  require("./Functions/functions.php");
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,14 +13,19 @@
 </head>
 <body>
 
+<div class="database">
 <?php
 
-  $customers = readJSON('./datacustomers.json');
-  $books = readJSON('./databooks.json');
+  $customers = readJSON('./DataBase/datacustomers.json');
+  $books = readJSON('./DataBase/databooks.json');
 
-  echo "HOLA DESDE READJSON.PHP";
+  paintDataBase($customers, $books);
 
 ?>
+  <form action="index.php" method="post">
+    <input type="submit" value="Back to index" class="database-btn" name="submit">
+  </form>
+</div>
   
 </body>
 </html>

@@ -1,5 +1,7 @@
 <?php
 
+  namespace Classes;
+
   class Book{
     public $author;
     public $title;

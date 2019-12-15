@@ -61,7 +61,7 @@ EOD;
   }
 
   function takeNextCustomerID(){
-    $datos = readJSON('./datacustomers.json');
+    $datos = readJSON('./DataBase/datacustomers.json');
     if($datos == null){
       $id = 1;
     }else{
@@ -115,6 +115,52 @@ EOD;
 EOD;
   }
 
+  function paintDataBase($customers, $books){
+    echo <<<EOD
+      <div class='database-customers'>
+        <h1 class='database-customers-title'>CUSTOMERS</h1>
+        <table>
+          <tr>
+            <td>ID</td>
+            <td>NAME</td>
+            <td>SURNAME</td>
+            <td>EMAIL</td>
+          <tr>
+EOD;
+    for($i=0; $i<count($customers); $i++){
+      echo <<<EOD
+        <tr>
+          <td>{$customers[$i]["id"]}</td>
+          <td>{$customers[$i]["name"]}</td>
+          <td>{$customers[$i]["surname"]}</td>
+          <td>{$customers[$i]["email"]}</td>
+        </tr>
+EOD;
+    }
+    echo "</table></div>";
+
+    echo <<<EOD
+      <div class='database-books'>
+        <h1 class='database-books-title'>BOOKS</h1>
+        <table>
+          <tr>
+            <td>AUTHOR</td>
+            <td>TITLE</td>
+            <td>ISBN</td>
+          <tr>
+EOD;
+    for($i=0; $i<count($books); $i++){
+      echo <<<EOD
+        <tr>
+          <td>{$books[$i]["author"]}</td>
+          <td>{$books[$i]["title"]}</td>
+          <td>{$books[$i]["isbn"]}</td>
+        </tr>
+EOD;
+}
+echo "</table></div>";
+  }
+
   function readJSON($url){
     $str_datos = file_get_contents($url);
     $datos = json_decode($str_datos, true);
@@ -122,7 +168,7 @@ EOD;
   }
 
   function addCustomer($customer){
-    $datos = readJSON('./datacustomers.json');
+    $datos = readJSON('./DataBase/datacustomers.json');
     $long = count($datos);
 
     $datos[$long]=array(
@@ -131,14 +177,14 @@ EOD;
     "surname"=>$customer->surname,
     "email"=>$customer->email);
 
-    $fh = fopen("datacustomers.json", 'w')
+    $fh = fopen("./DataBase/datacustomers.json", 'w')
       or die("Error al abrir fichero de salida");
     fwrite($fh, json_encode($datos, JSON_UNESCAPED_UNICODE));
     fclose($fh);
   }
 
   function addBook($book){
-    $datos = readJSON('./databooks.json');
+    $datos = readJSON('./DataBase/databooks.json');
     $long = count($datos);
 
     $datos[$long]=array(
@@ -146,7 +192,7 @@ EOD;
     "title"=>$book->title,
     "isbn"=>$book->isbn);
 
-    $fh = fopen("databooks.json", 'w')
+    $fh = fopen("./DataBase/databooks.json", 'w')
       or die("Error al abrir fichero de salida");
     fwrite($fh, json_encode($datos, JSON_UNESCAPED_UNICODE));
     fclose($fh);

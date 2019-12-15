@@ -1,7 +1,9 @@
 <?php
-  require("functions.php");
-  require_once __DIR__. '/Customer.php';
-  require_once __DIR__. '/Book.php';
+  require("./Functions/functions.php");
+  require_once("./autoload.php");
+
+  use Classes\{Book, Customer};
+
 ?>
 
 <!DOCTYPE html>
@@ -50,6 +52,10 @@ EOD;
 
 
 ?>
+</div>
+
+<div class="register-message">
+  <h1 class="register-message-title">Será redirigido al inicio en 5 segundos</h1>
 </div>
 </body>
 </html>

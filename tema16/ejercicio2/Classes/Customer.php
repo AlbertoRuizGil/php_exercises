@@ -1,5 +1,7 @@
 <?php
 
+  namespace Classes;
+
   class Customer {
     public $id;
     public $name;
