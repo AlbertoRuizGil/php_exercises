@@ -7,6 +7,8 @@
       <input type="number" name="sides"></br>
       <label for="size">Size</label></br>
       <input type="number" name="size"></br>
+      <label for="quantity">Quantity</label></br>
+      <input type="number" name="quantity"></br>
       <label for="color">Color</label>
       <select name="color">
         <option selected disabled>PICK COLOR</option>

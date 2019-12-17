@@ -12,7 +12,6 @@
     }
 
     abstract public function paintFigure();
-
   }
 
 ?>
