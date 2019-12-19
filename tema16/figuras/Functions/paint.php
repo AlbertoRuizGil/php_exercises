@@ -2,6 +2,7 @@
 
   function paintForm(){
     echo <<<EOD
+    <div class="form">
     <form action="./Controller/process.php" method="post">
       <div class="checkbox">
         <label for="circle">Circle</label>
@@ -28,6 +29,7 @@
       <input type="submit" value="Paint">
   
     </form>
+    </div>
 EOD;
   }
 

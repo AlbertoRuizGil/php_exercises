@@ -1,0 +1,34 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 10px;
+}
+
+
+.form{
+  margin: 5rem auto;
+  padding: 2rem;
+  width: 40rem;
+  border: 1px solid black;
+  border-radius: 2rem;
+}
+
+.form label{
+  font-size: 3rem;
+}
+
+.checkbox{
+  margin: 2rem 0;
+}
+
+.figure{
+  margin: 1rem auto;
+  padding: 1rem;
+  width: fit-content;
+  border: 1px solid black;
+  border-radius: 2rem;
+}
