@@ -2,22 +2,28 @@
 
   function paintForm(){
     echo <<<EOD
-    <form action="process.php" method="post">
-      <label for="sides">Sides</label></br>
-      <input type="number" name="sides"></br>
-      <label for="size">Size</label></br>
-      <input type="number" name="size"></br>
-      <label for="quantity">Quantity</label></br>
-      <input type="number" name="quantity"></br>
-      <label for="color">Color</label>
-      <select name="color">
-        <option selected disabled>PICK COLOR</option>
-        <option value="yellow">YELLOW</option>
-        <option value="red">RED</option>
-        <option value="blue">BLUE</option>
-        <option value="white">WHITE</option>
-      </select>
-      </br>
+    <form action="./Controller/process.php" method="post">
+      <div class="checkbox">
+        <label for="circle">Circle</label>
+        <input type="checkbox" name="figure[]" value="Circle">
+        <input type="color" name="Circle-color">
+        <label for="Circle-size">Size</label>
+        <input type="number" name="Circle-size" value="100">
+      </div>
+      <div class="checkbox">
+        <label for="triangle">Triangle</label>
+        <input type="checkbox" name="figure[]" value="Triangle">
+        <input type="color" name="Triangle-color">
+        <label for="Triangle-size">Size</label>
+        <input type="number" name="Triangle-size" value="100">
+      </div>
+      <div class="checkbox">
+        <label for="square">Square</label>
+        <input type="checkbox" name="figure[]" value="Square">
+        <input type="color" name="Square-color">
+        <label for="Square-size">Size</label>
+        <input type="number" name="Square-size" value="100">
+      </div>
   
       <input type="submit" value="Paint">
   
@@ -26,5 +32,8 @@ EOD;
   }
 
 ?>
+
+
+
 
 

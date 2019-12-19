@@ -1,21 +1,39 @@
 <?php
 
-  class Circle extends Figure{
-    private $sides;
-    private $size;
-    private $color;
+require_once("Figure.php");
 
-    public function __construct($sides, $size, $color){
-      parent::_construct(int $sides, int $size, string $color);
+  class Circle extends Figure{
+
+    public function __construct($size, $color){
+      parent::__construct($size, $color);
     }
 
     public function paintFigure(){
+      $size = parent::getSize();
+      $color = parent::getColor();
 
-      $area = 3,14 * $this->size * $this->size;
-      $edge_square_container = sqrt($area);
-      $edge_square_container += 100;
+      $color = $this->hexToRgb($color);
+
+      $im = imagecreatetruecolor($size, $size);
+      $background = imagecolorallocate($im, 255, 255, 255);
+      $figurecolor = imagecolorallocate($im, $color['r'], $color['g'], $color['b']);
+      imagefill($im, 0, 0, $background);
+      imagefilledellipse(
+        $im, 
+        $size * 0.5, 
+        $size * 0.5, 
+        $size, 
+        $size, 
+        $figurecolor);
       
-      imageellipse ($image, $cx, $cy, $width, $height, $color);
+      ob_start();
+      imagepng($im);
+      $buffer = ob_get_contents();
+      ob_end_clean();
+
+      $source = 'data:image/jpeg;base64,' . base64_encode($buffer);
+
+      return $source;
     }
   }
 
