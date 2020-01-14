@@ -1,0 +1,43 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 10px;
+}
+
+.mainbox{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 80%;
+  height: 40%;
+  padding: 1rem;
+  border: 1px solid black;
+}
+
+.mainbox-title{
+  text-align: center;
+  font-size: 3rem;
+}
+
+.mainbox-login{
+  width: min-content;
+}
+
+.mainbox-login-title{
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+
+.mainbox-register{
+  width: min-content;
+}
+
+.mainbox-register-title{
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}

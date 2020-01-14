@@ -13,12 +13,19 @@ class DBConnect {
     }
  
     // Constructor
-    private function __construct($configFile){
+    public function __construct($configFile){
       $config = json_decode(file_get_contents($configFile), TRUE);
-      $dsn = "{$config['DBType']}:dbname={$config['DBName']};host={$config['Host']}";;
+      $dsn = "{$config['DBType']}:host={$config['Host']};dbname={$config['DBName']}";
+      echo $dsn;
       $user = "{$config['User']}";
       $password = "{$config['Password']}";
-      $this->_connection = new PDO($dsn,$user,$password);
+      try{
+        $this->_connection = new PDO($dsn,$user,$password);
+        echo "Conexión realizada con éxito";
+      } catch (PDOException $e){
+        echo "Falló la conexión: " . $e->getMessage();
+      }
+      
     }
  
     // Magic method clone is empty to prevent duplication of connection
@@ -32,9 +39,9 @@ class DBConnect {
      
     public function exec($sql){
       
-      $connect = getConnection();
+      $connect = $this->getConnection();
       $statement = $connect->prepare($sql);
-      $statement = execute();
+      $statement->execute();
 
     }
  
