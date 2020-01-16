@@ -16,7 +16,6 @@ class DBConnect {
     public function __construct($configFile){
       $config = json_decode(file_get_contents($configFile), TRUE);
       $dsn = "{$config['DBType']}:host={$config['Host']};dbname={$config['DBName']}";
-      echo $dsn;
       $user = "{$config['User']}";
       $password = "{$config['Password']}";
       try{

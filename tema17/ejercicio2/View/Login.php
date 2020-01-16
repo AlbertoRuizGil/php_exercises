@@ -9,7 +9,7 @@
               <h2>Login</h2>
             </div>
             <div class='mainbox-login-form'>
-              <form action="" method="post">
+              <form action="./Controler/Login.php" method="post">
                 <label for="user">User</label></br>
                 <input type="text" name="user"></br>
                 <label for="password">Password</label></br>
@@ -23,7 +23,7 @@
               <h2>Register</h2>
             </div>
             <div class='mainbox-register-form'>
-              <form action="" method="post">
+              <form action="./Controler" method="post">
                 <label for="user">User</label></br>
                 <input type="text" name="user"></br>
                 <label for="password">Password</label></br>

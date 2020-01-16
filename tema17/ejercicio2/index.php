@@ -1,23 +1,20 @@
 <?php
-  require("./View/Login.php");
+
+  require_once("./Classes/DBConnect.php");
+  require_once("./Config/Create.php");
+
+  createdb("./Config/config.json");
+
+  $conexion = new DBConnect("./Config/config.json");
+
+  /*Comentado $sql = 'CREATE TABLE IF NOT EXISTS libro()'; */
+
+  $sql = file_get_contents("./Config/database.sql");
+
+  $conexion->exec($sql);
+
+  echo "tabla creada";
+
+  $conexion = null;  */
+
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./View/style.css">
-  <title>Document</title>
-</head>
-<body>
-  
-  <?php
-
-    paintFormIndex();
-
-  ?>
-
-</body>
-</html>
