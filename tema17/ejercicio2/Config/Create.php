@@ -25,7 +25,7 @@
 
     $sql = file_get_contents($sqlFile);
 
-    $conexion = 
+    $conexion = new DBConnect("./Config/config.json");
 
     $conexion->exec($sql);
 

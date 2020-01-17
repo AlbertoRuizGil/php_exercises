@@ -18,20 +18,6 @@
               </form>
             </div>
           </div>
-          <div class='mainbox-register'>
-            <div class='mainbox-register-title'>
-              <h2>Register</h2>
-            </div>
-            <div class='mainbox-register-form'>
-              <form action="./Controler" method="post">
-                <label for="user">User</label></br>
-                <input type="text" name="user"></br>
-                <label for="password">Password</label></br>
-                <input type="text" name="password">
-                <input type="submit" name="register" value="register"></br>
-              </form>
-            </div>
-          </div>
       </div>
 
 EOD;

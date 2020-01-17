@@ -2,10 +2,10 @@
 
 class DBConnect {        
     private $_connection;
-    private static $_instance; //The single instance
+    private static $_instance; //Instancia única
  
     public static function getInstance(){
-        if(!self::$_instance) // If no instance then make one
+        if(!self::$_instance) // Si no está instanciada se crea una
         { 
             self::$_instance = new self();
         }
@@ -20,17 +20,16 @@ class DBConnect {
       $password = "{$config['Password']}";
       try{
         $this->_connection = new PDO($dsn,$user,$password);
-        echo "Conexión realizada con éxito";
       } catch (PDOException $e){
         echo "Falló la conexión: " . $e->getMessage();
       }
       
     }
  
-    // Magic method clone is empty to prevent duplication of connection
+    // Método mágico que está vacia para evitar duplicados en la conexión
     private function __clone() { }
  
-    // Get mysqli connection
+    // Obtener la conexión
     public function getConnection(){
 
       return $this->_connection;
@@ -42,6 +41,11 @@ class DBConnect {
       $statement = $connect->prepare($sql);
       $statement->execute();
 
+    }
+
+    public function throwquery($sql){
+      $connect = $this->getConnection();
+      return $connect->query($sql);
     }
  
 }
