@@ -9,29 +9,30 @@ html{
 }
 
 body{
-  background-image: linear-gradient(180deg, red, blue);
+  background-color: skyblue;
   
 }
 
-.mainbox{
+.Login-mainbox{
   background-color: cornflowerblue;
   position: absolute;
   top: 30%;
   left: 50%;
   transform: translate(-50%,-50%);
+  padding: 5rem;
   width: 40%;
-  height: 30%;
-  padding: 1rem;
+  height: 50%;
   border: 1px solid black;
   border-radius: 2rem;
 }
 
-.mainbox-title{
+.Login-mainbox-title, .Register-mainbox-title{
   text-align: center;
-  font-size: 3rem;
+  font-size: 3.5rem;
+  margin: 1rem 0;
 }
 
-.mainbox-login{
+.Login-mainbox-login, .Register-mainbox-register{
   width: min-content;
   position: relative;
   left: 50%;
@@ -39,21 +40,51 @@ body{
   transform: translate(-50%,-70%);
 }
 
-.mainbox-login-title{
+.Login-main-login-label, .Register-mainbox-register-label{
+  font-size: 2.5rem;
+}
+
+.Login-main-login-input {
+  margin: 0.5rem 0;
+  width: 30rem;
+  height: 4rem;
   font-size: 2rem;
-  margin: 0.5rem 0;
+  border-radius: 1rem;
 }
 
-.main-login-label{
-  
+.Login-main-login-submit, .Register-mainbox-register-submit{
+  margin: 1rem 0;
+  width: 30rem;
+  height: 5rem;
+  background-color: darkblue;
+  font-size: 2rem;
+  color: white;
+  border-radius: 2rem;
 }
 
-.main-login-input{
+
+.Register-mainbox-register-input{
   margin: 0.5rem 0;
   width: 30rem;
+  height: 3rem;
+  font-size: 2rem;
+  border-radius: 1rem;
 }
 
-.main-login-submit{
-  margin: 0.5rem 0;
-  width: 30rem;
+
+.Register-mainbox{
+  background-color: cornflowerblue;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 5rem;
+  width: 40%;
+  height: 70%;
+  border: 1px solid black;
+  border-radius: 2rem;
+}
+
+.Register-mainbox-register{
+  height: 65%;
 }

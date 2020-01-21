@@ -1,6 +1,11 @@
 <?php
 
   require_once("./View/Login.php");
+  require_once("./Model/DBConnect.php");
+  require_once("./Model/DBCreation.php");
+
+  createdb("./Config/config.json");
+  createtables("./Config/database.sql");
 
 ?>
 
@@ -17,6 +22,7 @@
 
   <?php
     paintFormIndex();
+    
   ?>
   
 </body>
