@@ -1,0 +1,59 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 10px;
+}
+
+body{
+  background-image: linear-gradient(180deg, red, blue);
+  
+}
+
+.mainbox{
+  background-color: cornflowerblue;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 40%;
+  height: 30%;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 2rem;
+}
+
+.mainbox-title{
+  text-align: center;
+  font-size: 3rem;
+}
+
+.mainbox-login{
+  width: min-content;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-70%);
+}
+
+.mainbox-login-title{
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+
+.main-login-label{
+  
+}
+
+.main-login-input{
+  margin: 0.5rem 0;
+  width: 30rem;
+}
+
+.main-login-submit{
+  margin: 0.5rem 0;
+  width: 30rem;
+}
