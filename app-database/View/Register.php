@@ -11,7 +11,7 @@
   <div class="Register-mainbox">
     <h2 class="Register-mainbox-title"> Registrate</h2>
     <div class="Register-mainbox-register">
-      <form action="./Register.php" method="post">
+      <form action="../Controler/Register.php" method="post">
         <label for="firstname" class="Register-mainbox-register-label">Nombre</label><br>
         <input type="text" name="firstname" class="Register-mainbox-register-input" required><br>
         <label for="surname" class="Register-mainbox-register-label">Apellido</label><br>

@@ -6,6 +6,7 @@
 
     public function __construct($user, $password){
       $this->user = $user;
+      $password = md5($password);
       $this->password = $password;
     }
 

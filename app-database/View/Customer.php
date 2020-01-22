@@ -13,14 +13,22 @@
   <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
-  <a href="">Libros</a>
-  <a href="">Alquilar</a>
-  <a href="">Mis préstamos</a>
-  <?php
-    echo $_SESSION["user"];
-  ?>
-
-  <a href="../Controler/Exit.php">Cerrar sesión</a>
+  <div class="Customer-mainbox">
+    <div class="Customer-mainbox-allbtns">
+      <?php
+        if($_SESSION["type"]=="premium"){
+        echo "<a href='../View/Book.php' class='Customer-mainbox-allbtns-btn'>Libros</a>";
+        }
+      ?>
+      <a href="" class="Customer-mainbox-allbtns-btn">Alquilar</a>
+      <a href="" class="Customer-mainbox-allbtns-btn">Mis préstamos</a>
+    </div>
+  </div>
+    
+  <div class="Customer-exit">
+    <a href="../Controler/Exit.php" class="Customer-exit-btn">Cerrar sesión</a>
+  </div>
+  
   
 </body>
 </html>

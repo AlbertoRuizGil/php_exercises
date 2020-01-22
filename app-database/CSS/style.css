@@ -88,3 +88,89 @@ body{
 .Register-mainbox-register{
   height: 65%;
 }
+
+.Customer-mainbox{
+  background-color: cornflowerblue;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 60%;
+  height: 10%;
+  border-radius: 2rem;
+  padding: 3rem;
+}
+
+.Customer-mainbox-allbtns{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.Customer-mainbox-allbtns-btn{
+  font-size: 3rem;
+  margin-left: 5rem;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(65, 105, 225,1);
+  border-radius: 1rem;
+}
+
+.Customer-mainbox-allbtns-btn:visited{
+  color: white;
+}
+
+.Customer-mainbox-allbtns-btn:hover{
+  color: white;
+  background-color: rgba(65, 105, 225,0.5);
+}
+
+.Customer-exit{
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border: 2px solid white;
+  color: white;
+  background-color: darkblue;
+  width: 20rem;
+  height: 4rem;
+}
+
+.Customer-exit:hover{
+  background-color: rgba(0, 0, 139,0.5);
+}
+
+.Customer-exit-btn{
+  position: relative;
+  left: 10%;
+  font-size: 3rem;
+  text-decoration: none;
+}
+
+.Customer-exit-btn:visited{
+  color: white;
+}
+
+.Book-insert{
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  width: 70%;
+  font-size: 2rem;
+  transform: translateX(-50%);
+}
+
+.Book-insert input{
+  height: 3rem;
+  border-radius: 2rem;
+}
+
+.Book-insert-submit{
+  height: 3rem;
+  width: 10rem;
+  border-radius: 2rem;
+  background-color: darkblue;
+  color: white;
+}

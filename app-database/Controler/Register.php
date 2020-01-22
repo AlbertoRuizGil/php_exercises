@@ -1,6 +1,6 @@
 <?php
-  session_start():
-  require_once("../Controler/Customer.php");
+  session_start();
+  require_once("../Model/Customer.php");
   require_once("../Model/DBConnect.php");
 
   $_SESSION["user"] = $_POST["user"];
@@ -12,9 +12,12 @@
     $_POST["user"],
     $_POST["password"],
     $_POST["type"]
-  )
+  );
   $db = DBConnect::getInstance("../Config/config.json");
   $customer->addCustomer($db);
 
+  $_SESSION["type"] = $_POST["type"];
+  
+  header("Location: ../View/Customer.php");
 
 ?>
