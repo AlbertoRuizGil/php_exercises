@@ -66,6 +66,21 @@
       return false;
     }
 
+    public static function modifyBook($db, $id, $field, $newvalue){
+      $conexion = $db->getConnection();
+      if($field == "stock" || $field == "price"){
+        $sql = "UPDATE book SET {$field}={$newvalue} WHERE id=:id";
+      }else{
+        $sql = "UPDATE book SET {$field}='{$newvalue}' WHERE id=:id";
+      }
+
+      echo $sql;
+      
+      $statement = $conexion->prepare($sql);
+      $statement->bindValue(":id", $id);
+      $statement->execute();
+    }
+
     public static function deleteBook($db, $id){
       $conexion = $db->getConnection();
       $sql =  "DELETE FROM book WHERE id=:id";
@@ -78,6 +93,16 @@
       $conexion = $db->getConnection();
       $sql = "SELECT * FROM book";
       $statement = $conexion->prepare($sql);
+      $statement->execute();
+      $arr = $statement->fetchAll();
+      return $arr;
+    }
+
+    public static function getOneBook($db, $id){
+      $conexion = $db->getConnection();
+      $sql =  "SELECT * FROM book WHERE id=:id";
+      $statement = $conexion->prepare($sql);
+      $statement->bindValue(":id", $id);
       $statement->execute();
       $arr = $statement->fetchAll();
       return $arr;
@@ -139,6 +164,49 @@ EOD;
         echo "</tr>";
       }
       echo "</table>";
+    }
+
+    public static function paintOneBook($arr){
+      echo <<<EOD
+      <form action="../Controler/ModifyBook.php" method="post">
+        <input type="hidden" value="{$arr[0][0]}" name="id">
+        <table class="Book-table">
+          <tr class="Book-table-row Book-table-row-main">
+            <td>CONCEPTO</td>
+            <td>VALOR ACTUAL</td>
+            <td>NUEVO VALOR</td>
+          </tr>
+          <tr>
+            <td>ISBN</td>
+            <td>{$arr[0][1]}</td>
+            <td><input type="text" name="isbn"></td>
+          </tr>
+          <tr>
+            <td>TÍTULO</td>
+            <td>{$arr[0][2]}</td>
+            <td><input type="text" name="title"></td>
+          </tr>
+          <tr>
+            <td>AUTOR</td>
+            <td>{$arr[0][3]}</td>
+            <td><input type="text" name="author"></td>
+          </tr>
+          <tr>
+            <td>STOCK</td>
+            <td>{$arr[0][4]}</td>
+            <td><input type="number" name="stock"></td>
+          </tr>
+          <tr>
+            <td>PRECIO (€)</td>
+            <td>{$arr[0][5]}</td>
+            <td><input type="number" name="price"></td>
+          </tr>
+          <tr>
+            <td colspan="3"><input type="submit" name="submit" value="MODIFICAR" class="Book-table-submit"></td>
+          </tr>
+        </table>
+      </form>
+EOD;
     }
   }
 ?>

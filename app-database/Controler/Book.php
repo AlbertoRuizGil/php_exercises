@@ -17,6 +17,7 @@
   
   if(isset($_POST["delete"])){
     Book::deleteBook($db, $_POST["id"]);
+    
   }
 
   header("Location: ../View/Book.php");

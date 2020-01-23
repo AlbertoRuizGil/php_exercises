@@ -5,6 +5,7 @@
   require_once("../Model/Customer.php");
 
   $_SESSION["user"] = $_POST["user"];
+  $_SESSION["modify"] = false;
 
   $db = DBConnect::getInstance("../Config/config.json");
 

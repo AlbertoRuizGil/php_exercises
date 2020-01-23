@@ -15,7 +15,9 @@
 <body>
 
   <?php
-    
+    $db = DBConnect::getInstance("../Config/config.json");
+    $arr = Book::getOneBook($db, $_POST["id"]);
+    Book::paintOneBook($arr);
   ?>
 
   
