@@ -1,3 +1,7 @@
+<?php
+  require_once("../Model/DBConnect.php");
+  require_once("../Model/Book.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,20 +16,25 @@
   <div class="Book-insert">
       <form action="../Controler/Book.php" method="post">
         <label for="isbn">ISBN</label>
-        <input type="text" name="isbn">
+        <input type="text" name="isbn" required>
         <label for="title">Título</label>
-        <input type="text" name="title">
+        <input type="text" name="title" required>
         <label for="author">Autor</label>
-        <input type="text" name="author">
+        <input type="text" name="author" required>
         <label for="stock">Stock</label>
-        <input type="number" name="stock">
+        <input type="number" name="stock" required>
         <label for="price">Precio</label>
-        <input type="number" name="price">
-        <input type="submit" class="Book-insert-submit" value="Añadir">
+        <input type="number" name="price" required>
+        <input type="submit" class="Book-insert-submit" value="Añadir" name="add">
       </form>
   </div>
 
   <div class="Book-table">
+    <?php
+      $db = DBConnect::getInstance("../Config/config.json");
+      $arr = Book::getAllBooks($db);
+      Book::paintAllBooks($arr, "books");
+    ?>
 
   </div>
   <div class="Book-exit">

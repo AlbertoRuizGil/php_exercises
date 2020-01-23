@@ -17,9 +17,10 @@
     <div class="Customer-mainbox-allbtns">
       <?php
         if($_SESSION["type"]=="premium"){
-        echo "<a href='../View/Book.php' class='Customer-mainbox-allbtns-btn'>Libros</a>";
+          echo "<a href='../View/Book.php' class='Customer-mainbox-allbtns-btn'>Libros</a>";
         }
       ?>
+      <a href="./Sales.php" class="Customer-mainbox-allbtns-btn">Comprar</a>
       <a href="" class="Customer-mainbox-allbtns-btn">Alquilar</a>
       <a href="" class="Customer-mainbox-allbtns-btn">Mis préstamos</a>
     </div>

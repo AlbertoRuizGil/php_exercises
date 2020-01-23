@@ -36,25 +36,109 @@
     }
 
     public function addBook($db){
-      $conexion = $db->getConnection();
-      $sql = "INSERT INTO book (isbn, title, author, stock, price) VALUES (?,?,?,?,?);";
-      $statement = $conexion->prepare($sql);
-      $statement->bindParam(1, $this->isbn);
-      $statement->bindParam(2, $this->title);
-      $statement->bindParam(3, $this->author);
-      $statement->bindParam(4, $this->stock);
-      $statement->bindParam(5, $this->price);
-      $result = $statement->execute();
-      return $result;
+
+      if(!$this->checkBook($db)){
+        $conexion = $db->getConnection();
+        $sql = "INSERT INTO book (isbn, title, author, stock, price) VALUES (?,?,?,?,?);";
+        $statement = $conexion->prepare($sql);
+        $statement->bindParam(1, $this->isbn);
+        $statement->bindParam(2, $this->title);
+        $statement->bindParam(3, $this->author);
+        $statement->bindParam(4, $this->stock);
+        $statement->bindParam(5, $this->price);
+        $statement->execute();
+      }
+      
     }
 
-    public function deleteBook($db, $id){
+    public function checkBook($db){
+      $conexion = $db->getConnection();
+      $sql =  "SELECT * FROM book WHERE title=:title";
+      $statement = $conexion->prepare($sql);
+      $statement->bindValue(":title", $this->title);
+      $statement->execute();
+
+      $rows = $statement->rowCount();
+
+      if($rows !=0){
+        return true;
+      }
+      return false;
+    }
+
+    public static function deleteBook($db, $id){
       $conexion = $db->getConnection();
       $sql =  "DELETE FROM book WHERE id=:id";
       $statement = $conexion->prepare($sql);
       $statement->bindValue(":id", $id);
-      $statement->exectute();
+      $statement->execute();
     }
 
+    public static function getAllBooks($db){
+      $conexion = $db->getConnection();
+      $sql = "SELECT * FROM book";
+      $statement = $conexion->prepare($sql);
+      $statement->execute();
+      $arr = $statement->fetchAll();
+      return $arr;
+    }
+
+    public static function paintAllBooks($arr, $type){
+      echo <<<EOD
+      <table>
+        <tr class="Book-table-row Book-table-row-main">
+          <td >ISBN</td>
+          <td>TÍTULO</td>
+          <td>AUTOR</td>
+          <td>STOCK</td>
+          <td>PRECIO (€)</td>
+EOD;
+        if($type=="books"){
+          echo "<td>BORRAR</td><td>MODIFICAR</td>";
+        }else if($type="buy"){
+          echo "<td>ADQUIRIR<td>";
+        }
+        echo "</tr>";
+
+      for($i=0; $i<count($arr); $i++){
+        if($i%2==0){
+          echo "<tr class='Book-table-row Book-table-row-even'>";
+        }else{
+          echo "<tr class='Book-table-row Book-table-row-odd'>";
+        }
+        
+        for($j=1; $j<6; $j++){
+          echo "<td>" . $arr[$i][$j] . "</td>";
+        }
+        if($type=="books"){
+          echo <<<EOD
+          <td> 
+            <form action="../Controler/Book.php" method="post">
+              <input type="submit" class="Book-table-submit" value="ELIMINAR" name="delete">
+              <input type="hidden" value="{$arr[$i][0]}" name="id">
+            </form>
+          </td>
+          <td> 
+            <form action="../View/ModifyBook.php" method="post">
+              <input type="submit" class="Book-table-submit" value="MODIFICAR" name="modify">
+              <input type="hidden" value="{$arr[$i][0]}" name="id">
+            </form>
+          </td>
+EOD;
+        }else if($type=="buy"){
+          echo <<<EOD
+          <td> 
+            <form action="../Controler/Sales.php" method="post">
+              <input type="submit" class="Book-table-submit" value="COMPRAR" name="delete">
+              <input type="hidden" value="{$arr[$i][0]}" name="id">
+            </form>
+          </td>
+EOD;
+        }
+        
+        echo "</tr>";
+      }
+      echo "</table>";
+    }
   }
 ?>
