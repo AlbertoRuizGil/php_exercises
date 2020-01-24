@@ -1,4 +1,5 @@
 <?php
+  session_start();
   require_once("../Model/DBConnect.php");
   require_once("../Model/Book.php");
 ?>
@@ -12,6 +13,21 @@
   <title>Document</title>
 </head>
 <body>
+  <div class="Book-exit">
+    <a href="../View/Customer.php" class="Book-exit-btn">Volver</a>
+    <a href="../Controler/Exit.php" class="Book-exit-btn">Cerrar sesión</a>
+    <?php
+      if($_SESSION["modify"] == true){
+        echo <<<EOD
+        <form action="../Controler/Changes.php" method="post">
+          <input type="submit" class='Book-exit-btn' name="save" value="Guardar cambios">
+          <input type="submit" class='Book-exit-btn' name="undo" value="Deshacer cambios">
+        </form>
+EOD;
+      }
+    ?>
+  </div>
+  
 
   <div class="Book-insert">
       <form action="../Controler/Book.php" method="post">
@@ -24,7 +40,7 @@
         <label for="stock">Stock</label>
         <input type="number" name="stock" required>
         <label for="price">Precio</label>
-        <input type="number" name="price" required>
+        <input type="number" step=".01" name="price" required>
         <input type="submit" class="Book-insert-submit" value="Añadir" name="add">
       </form>
   </div>
@@ -37,9 +53,6 @@
     ?>
 
   </div>
-  <div class="Book-exit">
-    <a href="../View/Customer.php" class="Book-exit-btn">Volver</a>
-    <a href="../Controler/Exit.php" class="Book-exit-btn">Cerrar sesión</a>
-  </div>
 </body>
 </html>
+

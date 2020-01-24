@@ -20,6 +20,8 @@
     Book::paintOneBook($arr);
   ?>
 
+  <a href="./Book.php">Volver</a>
+
   
 </body>
 </html>

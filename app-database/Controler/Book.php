@@ -1,4 +1,6 @@
 <?php
+  session_start();
+  
   require_once("../Model/Book.php");
   require_once("../Model/DBConnect.php");
 
@@ -19,6 +21,8 @@
     Book::deleteBook($db, $_POST["id"]);
     
   }
+
+  $_SESSION["modify"] = true;
 
   header("Location: ../View/Book.php");
 ?>
