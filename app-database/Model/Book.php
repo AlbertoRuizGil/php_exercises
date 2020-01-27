@@ -121,7 +121,7 @@ EOD;
         if($type=="books"){
           echo "<td>BORRAR</td><td>MODIFICAR</td>";
         }else if($type="buy"){
-          echo "<td>ADQUIRIR<td>";
+          echo "<td>ADQUIRIR</td>";
         }
         echo "</tr>";
 
@@ -153,7 +153,8 @@ EOD;
         }else if($type=="buy"){
           echo <<<EOD
           <td> 
-            <form action="../Controler/Sales.php" method="post">
+            <form action="../Controler/Sale.php" method="post">
+              <input type="number" name="quantity" min="1" value="1">
               <input type="submit" class="Book-table-submit" value="COMPRAR" name="delete">
               <input type="hidden" value="{$arr[$i][0]}" name="id">
             </form>

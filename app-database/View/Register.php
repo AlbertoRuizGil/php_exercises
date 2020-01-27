@@ -1,3 +1,13 @@
+<?php
+  session_start();
+  
+  if($_SESSION["error_message"]!=null){
+    echo $_SESSION["error_message"];
+    $_SESSION["error_message"] = null;
+  }
+   
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

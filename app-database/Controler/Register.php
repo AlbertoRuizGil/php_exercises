@@ -14,10 +14,19 @@
     $_POST["type"]
   );
   $db = DBConnect::getInstance("../Config/config.json");
-  $customer->addCustomer($db);
-
-  $_SESSION["type"] = $_POST["type"];
   
-  header("Location: ../View/Customer.php");
+  $check = $customer->addCustomer($db);
+
+  if($check){
+    $_SESSION["type"] = $_POST["type"];
+  
+    header("Location: ../View/Customer.php");
+  }else{
+    $_SESSION["error_message"]= "Usuario existente";
+
+    header("Location: ../View/Register.php");
+  }
+
+ 
 
 ?>
