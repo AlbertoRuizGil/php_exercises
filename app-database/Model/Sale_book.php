@@ -25,11 +25,11 @@
 
     public function addSale_book($db){
       $conexion = $db->getConnection();
-      $sql = "INSERT INTO sale (book_id, sale_id, amount) VALUES (?,?,?)";
+      $sql = "INSERT INTO sale_book (book_id, sale_id, amount) VALUES (?,?,?)";
       $statement = $conexion->prepare($sql);
-      $statement = bindParam(1, $this->book_id);
-      $statement = bindParam(2, $this->sale_id);
-      $statement = bindParam(3, $this->amount);
+      $statement->bindParam(1, $this->book_id);
+      $statement->bindParam(2, $this->sale_id);
+      $statement->bindParam(3, $this->amount);
       $statement->execute();
     }
   }

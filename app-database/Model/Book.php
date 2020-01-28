@@ -35,6 +35,26 @@
       return $this->price;
     }
 
+    public static function setStock($db, $id, $amount){
+      $conexion = $db->getConnection();
+      $sql = "SELECT stock FROM book WHERE id= :book_id";
+      $statement = $conexion->prepare($sql);
+      $statement->bindValue(":book_id", $id);
+      $statement->execute();
+      $arr = $statement->fetch(PDO::FETCH_ASSOC);
+      
+      if($amount <= $arr["stock"]){
+        $diference = $arr["stock"] - $amount;
+        $sql_update = "UPDATE book SET stock= :amount WHERE id= :book_id";
+        $statement_update = $conexion->prepare($sql_update);
+        $statement_update->bindValue(":amount", $diference);
+        $statement_update->bindValue(":book_id", $id);
+        $statement_update->execute();
+        return true;
+      }
+      return false;
+    }
+
     public function addBook($db){
 
       if(!$this->checkBook($db)){
@@ -154,7 +174,7 @@ EOD;
           echo <<<EOD
           <td> 
             <form action="../Controler/Sale.php" method="post">
-              <input type="number" name="quantity" min="1" value="1">
+              <input type="number" name="amount" min="1" value="1">
               <input type="submit" class="Book-table-submit" value="COMPRAR" name="delete">
               <input type="hidden" value="{$arr[$i][0]}" name="id">
             </form>

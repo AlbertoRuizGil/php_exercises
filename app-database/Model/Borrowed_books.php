@@ -1,6 +1,6 @@
 <?php
 
-  class Borrow{
+  class Borrowed_books{
     private $customer_id;
     private $book_id;
     private $borrowStart;
