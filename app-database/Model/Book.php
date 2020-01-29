@@ -140,8 +140,10 @@
 EOD;
         if($type=="books"){
           echo "<td>BORRAR</td><td>MODIFICAR</td>";
-        }else if($type="buy"){
+        }else if($type=="buy"){
           echo "<td>ADQUIRIR</td>";
+        }else if($type=="rent"){
+          echo "<td>ALQUILAR</td>";
         }
         echo "</tr>";
 
@@ -175,7 +177,30 @@ EOD;
           <td> 
             <form action="../Controler/Sale.php" method="post">
               <input type="number" name="amount" min="1" value="1">
-              <input type="submit" class="Book-table-submit" value="COMPRAR" name="delete">
+EOD;
+          if($arr[$i]["stock"]!=0){
+            echo "<input type='submit' class='Book-table-submit' value='COMPRAR' name='rent'>";
+          }else{
+            echo "<input type='submit' class='Book-table-submit Book-table-submit-disabled' value='COMPRAR' name='rent' disabled>";
+          }
+              
+          echo <<<EOD
+              <input type="hidden" value="{$arr[$i][0]}" name="id">
+            </form>
+          </td>
+EOD;
+        }else if($type=="rent"){
+          echo <<<EOD
+          <td> 
+            <form action="../Controler/Borrowed_books.php" method="post">
+EOD;
+          if($arr[$i]["stock"]!=0){
+            echo "<input type='submit' class='Book-table-submit' value='ALQUILAR' name='rent'>";
+          }else{
+            echo "<input type='submit' class='Book-table-submit Book-table-submit-disabled' value='ALQUILAR' name='rent' disabled>";
+          }
+              
+          echo <<<EOD
               <input type="hidden" value="{$arr[$i][0]}" name="id">
             </form>
           </td>

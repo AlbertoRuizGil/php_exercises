@@ -28,6 +28,30 @@
     public function getBorrowEnd(){
       return $this->borrowEnd;
     }
+
+    public function setBorrowEnd($db, $customer_id, $book_id, $newValue){
+      $conexion = $db->getConnection();
+      $sql = "UPDATE book SET borrowEnd={$newvalue} WHERE customer_id= :customer AND book_id= :book";
+      $statement = $conexion->prepare($sql);
+      $statement->bindValue(":customer", $customer_id);
+      $statement->bindValue("book", $book_id);
+      $statement->execute();
+    }
+
+    public function addBorrowed_books($db){
+      $conexion = $db->getConnection();
+      $sql = "INSERT INTO borrowed_books (customer_id, book_id, borrowStart, borrowEnd) VALUES (?,?,?,?)";
+      $statement = $conexion->prepare($sql);
+      $statement->bindParam(1, $this->customer_id);
+      $statement->bindParam(2, $this->book_id);
+      $statement->bindParam(3, $this->borrowStart);
+      $statement->bindParam(4, $this->borrowEnd);
+      $statement->execute();
+    }
+
+    public function paintBorrowed_books($db){
+
+    }
   }
 
 ?>

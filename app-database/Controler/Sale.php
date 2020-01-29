@@ -13,8 +13,10 @@
     $date = new DateTime();
     $sale = new Sale($_SESSION["id_customer"], $date->format("Y-m-d H:i:s"));
     $sale->addSale($db);
+
+    $last_insert_id = $sale->getLastId($db, $_SESSION["id_customer"], $sale->getSaleDate());
     
-    $sale_book = new Sale_book($_POST["id"], $sale->getLastId($db, $_SESSION["id_customer"], $sale->getSaleDate()), $_POST["amount"]);
+    $sale_book = new Sale_book($_POST["id"], $last_insert_id, $_POST["amount"]);
     $sale_book->addSale_book($db);
   }else{
     echo "Sin stock";

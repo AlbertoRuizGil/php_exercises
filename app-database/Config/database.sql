@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS borrowed_books
   customer_id int(10) NOT NULL,
   book_id int(10) NOT NULL,
   borrowStart datetime NOT NULL,
-  borrowEnd datetime NOT NULL,
+  borrowEnd datetime,
   PRIMARY KEY(customer_id,book_id),
   FOREIGN KEY(customer_id) REFERENCES Customer(id) ON UPDATE CASCADE ON DELETE CASCADE,
   FOREIGN KEY(book_id) REFERENCES Book(id) ON UPDATE CASCADE ON DELETE CASCADE

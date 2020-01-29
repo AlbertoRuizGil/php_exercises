@@ -23,8 +23,7 @@
   <div class="Book-table">
     <?php
       $db = DBConnect::getInstance("../Config/config.json");
-      $arr = Book::getAllBooks($db);
-      Book::paintAllBooks($arr, "rent");
+      
     ?>
   </div>
 
