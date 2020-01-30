@@ -1,6 +1,6 @@
 <?php
   session_start();
-  require_once("../Model/Book.php");
+  require_once("../Model/Borrowed_books.php");
   require_once("../Model/DBConnect.php");
 ?>
 
@@ -23,7 +23,8 @@
   <div class="Book-table">
     <?php
       $db = DBConnect::getInstance("../Config/config.json");
-      
+      $arr = Borrowed_books::getAllBorrowed_books($db, $_SESSION["id_customer"]);
+      Borrowed_books::paintBorrowed_books($arr);
     ?>
   </div>
 

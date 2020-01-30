@@ -22,7 +22,7 @@
       ?>
       <a href="./Sale.php" class="Customer-mainbox-allbtns-btn">Comprar</a>
       <a href="./Borrowed_books.php" class="Customer-mainbox-allbtns-btn">Alquilar</a>
-      <a href="" class="Customer-mainbox-allbtns-btn">Mis préstamos</a>
+      <a href="./Rents" class="Customer-mainbox-allbtns-btn">Mis préstamos</a>
     </div>
   </div>
     
