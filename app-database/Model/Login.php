@@ -16,14 +16,18 @@
       $statement = $conexion->prepare($sql);
       $statement->bindValue(":login", $this->user);
       $statement->bindValue(":password", $this->password);
-      $statement->execute();
-
-      $rows = $statement->rowCount();
-
-      if($rows !=0){
-        return true;
+      
+      if($statement->execute()){
+        $rows = $statement->rowCount();
+        if($rows !=0){
+          return true;
+        }
+        return false;
+      }else{
+        throw new Exception("Ha habido un problema al consultar el login");
       }
-      return false;
+
+      
 
     }
   }

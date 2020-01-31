@@ -51,7 +51,7 @@
 
     public static function getAllBorrowed_books($db, $customer_id){
       $conexion = $db->getConnection();
-      $sql = "SELECT title, borrowStart FROM book, borrowed_books WHERE id = book_id AND customer_id= :cus_id";
+      $sql = "SELECT id, title, borrowStart, borrowEnd FROM book, borrowed_books WHERE id = book_id AND customer_id= :cus_id";
       $statement = $conexion->prepare($sql);
       $statement->bindValue(":cus_id", $customer_id);
       $statement->execute();
@@ -69,21 +69,45 @@
         </tr>
 EOD;
       for($i=0; $i<count($arr); $i++){
-        if($i%2==0){
-          echo "<tr class='Book-table-row Book-table-row-even'>";
-        }else{
-          echo "<tr class='Book-table-row Book-table-row-odd'>";
+        if($arr[$i]['borrowEnd']==null){
+          if($i%2==0){
+            echo "<tr class='Book-table-row Book-table-row-even'>";
+          }else{
+            echo "<tr class='Book-table-row Book-table-row-odd'>";
+          }
+          echo "<td> {$arr[$i]['title']}</td> <td> {$arr[$i]['borrowStart']}</td>"; 
+          echo "<td>
+          <form method='post' action='../Controler/Rents.php'>
+            <input type='submit' class='Book-table-submit' value='DEVOLVER' name='return'>
+            <input type='hidden' value='{$arr[$i]['id']}' name='id'>
+          </form>
+          </td>";
+          echo "</tr>";
         }
-        echo "<td> {$arr[$i]['title']}</td> <td> {$arr[$i]['borrowStart']}</td>"; 
-        echo "<td>
-        <form method='post' action='../Controler/Rents.php'>
-          <input type='submit' class='Book-table-submit' value='DEVOLVER' name='return'>
-        </form>
-        </td>";
-        echo "</tr>";
-      }
+      }  
       echo "</table>";
     }
+
+    public static function returnBorrowed_books($db, $book_id, $customer_id, $endDate){
+      $conexion = $db->getConnection();
+      $sql_borrowed = "UPDATE borrowed_books 
+      SET borrowEnd= :end_date 
+      WHERE book_id= :book_id AND
+      customer_id= :cus_id ";
+      $statement_borrowed = $conexion->prepare($sql_borrowed);
+      $statement_borrowed ->bindValue(":end_date", $endDate);
+      $statement_borrowed ->bindValue(":book_id", $book_id);
+      $statement_borrowed ->bindValue(":cus_id", $customer_id);
+      $statement_borrowed ->execute();
+
+      $sql_book = "UPDATE book SET stock=stock + 1 WHERE id= :book_id ";
+      $statement_book = $conexion->prepare($sql_book);
+      $statement_book ->bindValue(":book_id", $book_id);
+      $statement_book ->execute();
+
+    }
   }
+
+
 
 ?>

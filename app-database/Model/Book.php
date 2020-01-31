@@ -66,7 +66,11 @@
         $statement->bindParam(3, $this->author);
         $statement->bindParam(4, $this->stock);
         $statement->bindParam(5, $this->price);
-        $statement->execute();
+        if(!$statement->execute()){
+          throw new Exception("Ocurrió un problema y no se insertó la fila");
+        }
+      }else{
+        throw new Exception("El título ya se encuentra en la base de datos");
       }
       
     }
