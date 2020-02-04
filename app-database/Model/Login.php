@@ -26,9 +26,6 @@
       }else{
         throw new Exception("Ha habido un problema al consultar el login");
       }
-
-      
-
     }
   }
 

@@ -67,7 +67,7 @@
         $statement->bindParam(4, $this->stock);
         $statement->bindParam(5, $this->price);
         if(!$statement->execute()){
-          throw new Exception("Ocurrió un problema y no se insertó la fila (Será redirigido en 5 segundos)");
+          throw new Exception("Ocurrió un problema y no se insertó la fila (Será redirigido en 5 segundos). " . $statement->errorInfo()[2]);
         }
       }else{
         throw new Exception("El título ya se encuentra en la base de datos (Será redirigido en 5 segundos)");
