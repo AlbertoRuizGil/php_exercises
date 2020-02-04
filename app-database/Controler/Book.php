@@ -25,7 +25,8 @@
   
     header("Location: ../View/Book.php");
   }catch(Exception $e){
-    echo $e->getMessage();
+    echo "<h1>" . $e->getMessage() . "</h1>";
+    header("Refresh:5; url=../View/Book.php");
   }
   
 ?>

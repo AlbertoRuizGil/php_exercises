@@ -24,7 +24,6 @@
     <?php
       $db = DBConnect::getInstance("../Config/config.json");
       $arr = Borrowed_books::getAllBorrowed_books($db, $_SESSION["id_customer"]);
-      var_dump($arr);
       Borrowed_books::paintBorrowed_books($arr);
     ?>
   </div>
