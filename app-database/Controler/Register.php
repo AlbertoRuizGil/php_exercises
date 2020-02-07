@@ -20,7 +20,7 @@
   if($check){
     $_SESSION["type"] = $_POST["type"];
   
-    header("Location: ../View/Customer.php");
+    header("Location: ../Controler/SendMail.php");
   }else{
     $_SESSION["error_message"]= "Usuario existente";
 
