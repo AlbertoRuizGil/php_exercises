@@ -19,6 +19,7 @@
 
   if($check){
     $_SESSION["type"] = $_POST["type"];
+    $_SESSION["email"] = $_POST["email"];
   
     header("Location: ../Controler/SendMail.php");
   }else{

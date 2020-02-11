@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
@@ -25,7 +27,7 @@ try {
 
     //Recipients
     $mail->setFrom('zayasdaw007@gmail.com', 'Mailer');
-    $mail->addAddress('zayasdaw007@gmail.com', 'Joe User');     // Add a recipient
+    $mail->addAddress($_SESSION["email"], $_SESSION["user"]);     // Add a recipient
     /* $mail->addAddress('ellen@example.com'); */               // Name is optional
     /* $mail->addReplyTo('info@example.com', 'Information');
     $mail->addCC('cc@example.com');
@@ -37,8 +39,8 @@ try {
 
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Pablo es un hijo de su madre';
-    $mail->Body    = 'Bienvenido, ha sido registrado y Pablo es un caraculo';
+    $mail->Subject = 'Bienvenido';
+    $mail->Body    = 'Bienvenido a la aplicación de librería ' . $_SESSION["user"];
     /* $mail->AltBody = 'This is the body in plain text for non-HTML mail clients'; */
 
     $mail->send();
