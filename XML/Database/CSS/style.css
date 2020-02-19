@@ -1,0 +1,32 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 10px;
+}
+
+.form{
+  font-size: 2rem;
+  padding: 5rem;
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 2rem;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+}
+
+.form input{
+  height: 2rem;
+}
+
+.form-btn{
+  border-radius: 2rem;
+  font-size: 2rem;
+  background-color: crimson;
+  width: 20rem;
+
+}

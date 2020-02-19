@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Catalog>
+   <Book id="1">
+      <Author>Ken Follet</Author>
+      <Title>Los pilares de la tierra</Title>
+      <Genre>Novela histórica</Genre>
+      <Price>15.99</Price>
+      <PublishDate>1989</PublishDate>
+   </Book>
+   <Book id="2">
+      <Author>Neil Gaiman</Author>
+      <Title>Stardust</Title>
+      <Genre>Novel fantástica</Genre>
+      <Price>12.99</Price>
+      <PublishDate>1999</PublishDate>
+   </Book>
+   <Book id="3">
+      <Author>Yuval Noah Harari</Author>
+      <Title>Sapiens</Title>
+      <Genre>Ensayo</Genre>
+      <Price>20</Price>
+      <PublishDate>2011</PublishDate>
+   </Book>
+   <Book id="4">
+      <Author>Stephen King</Author>
+      <Title>IT</Title>
+      <Genre>Novela de terror</Genre>
+      <Price>11.99</Price>
+      <PublishDate>1986</PublishDate>
+   </Book>
+   
+</Catalog>

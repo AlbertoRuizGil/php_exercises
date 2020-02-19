@@ -1,18 +1,16 @@
 <?php
 
-  /* error_reporting(0);
-  if(isset($_POST["clave"])){
-    echo $_POST["clave"];
-  }else if($_GET["elseif"]){
-    echo $_GET["elseif"];
-  }else{
-    echo "else";
-  }
- */
+  $books_xml = simplexml_load_file("../XML/books.xml");
 
- if(isset($_POST["clave"])){
-   echo "algo";
- }else{
-   echo "otra cosa";
- }
+  $book_arr = (array)$books_xml;
+
+  echo "<tr><td>Autor</td><td>Título</td></tr>";
+
+  for($i=0; $i<count($book_arr["Book"]); $i++){
+
+    echo "<tr>";
+    echo "<td>" . $book_arr["Book"][$i]->Author . "</td>";
+    echo "<td>" . $book_arr["Book"][$i]->Title . "</td>";
+    echo "</tr>";
+  }
 ?>

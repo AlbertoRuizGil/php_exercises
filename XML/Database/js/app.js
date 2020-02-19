@@ -1,14 +1,15 @@
-document.getElementById("fetch").addEventListener("click", getElements);
+document.getElementById("show_catalog_btn").addEventListener("click", showCatalog);
 
-async function getElements(e){
-  e.preventDefault();
-  var form = document.getElementById("form");
-  var data = new FormData(form);
-  data.append("clave", "valor");
-  var res = await fetch("./php/index.php", {
-    method: "post",
-    body: data
-  });
-  var element = await res.json();
-  console.log(element);
+function showCatalog(){
+  var tabla = document.getElementById("catalog");
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function(){
+    if(this.readyState==4 && this.status==200){
+      tabla.innerHTML= this.responseText;
+    }
+  };
+  xhr.open("POST", "./php/index.php");
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.send();
+
 }
