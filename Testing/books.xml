@@ -3,14 +3,14 @@
    <Book id="1">
       <Author>Ken Follet</Author>
       <Title>Los pilares de la tierra</Title>
-      <Genre>Novela histórica</Genre>
+      <Genre>Novela hist&#xF3;rica</Genre>
       <Price>15.99</Price>
       <PublishDate>1989</PublishDate>
    </Book>
    <Book id="2">
       <Author>Neil Gaiman</Author>
       <Title>Stardust</Title>
-      <Genre>Novel fantástica</Genre>
+      <Genre>Novel fant&#xE1;stica</Genre>
       <Price>12.99</Price>
       <PublishDate>1999</PublishDate>
    </Book>
@@ -28,4 +28,5 @@
       <Price>11.99</Price>
       <PublishDate>1986</PublishDate>
    </Book>
+   
 </Catalog>

@@ -15,7 +15,7 @@ html{
   border: 1px solid black;
   border-radius: 2rem;
   left: 50%;
-  top: 20%;
+  top: 10%;
   transform: translateX(-50%);
 }
 
@@ -28,5 +28,4 @@ html{
   font-size: 2rem;
   background-color: crimson;
   width: 20rem;
-
 }
