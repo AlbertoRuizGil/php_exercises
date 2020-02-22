@@ -1,4 +1,8 @@
 <?php
+  
+  function getNextID($books_arr){
+    return $books_arr[count($books_arr)-1]->attributes() + 1;
+  }
 
   $author = "Joe Hill";
   $title = "Locke and Key";
@@ -8,7 +12,9 @@
 
   $books_xml = simplexml_load_file("./books.xml");
 
-  $book = $books_xml->addChild("Book");
+  getNextID($books_xml->xpath("/Catalog/Book"));
+
+  /* $book = $books_xml->addChild("Book");
   $book->addAttribute("id", 5);
 
   var_dump($books_xml);
@@ -19,5 +25,5 @@
   $book->addChild("PublishDate", $publication);
   $book->addChild("Genre", $genre);
 
-  $books_xml->asXML("./books.xml");
+  $books_xml->asXML("./books.xml"); */
 ?>

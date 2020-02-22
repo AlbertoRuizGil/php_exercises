@@ -1,23 +1,40 @@
 <?php
 
-  $author = $_POST["author"];
-  $title = $_POST["title"];
-  $price = $_POST["price"];
-  $publication = $_POST["publication"];
-  $genre = $_POST["genre"];
+  require_once("functions.php");
 
-  $books_xml = simplexml_load_file("./XML/books.xml");
+  $author = trim($_POST["author"]);
+  $title = trim($_POST["title"]);
+  $price = trim($_POST["price"]);
+  $publication = trim($_POST["publication"]);
+  $genre = trim($_POST["genre"]);
 
-  $book = $books_xml->addChild("Book");
-  $book->addAttribute("id", 5);
+  if($author != "" &&
+    $title != "" &&
+    $price != "" &&
+    $publication != "" &&
+    $genre != ""){
 
-  $book->addChild("Author", $author);
-  $book->addChild("Title", $title);
-  $book->addChild("Price", $price);
-  $book->addChild("PublishDate", $publication);
-  $book->addChild("Genre", $genre);
+    $books_xml = simplexml_load_file("../XML/books.xml");
 
-  $books_xml->asXML("./XML/books.xml");
+    $id = getNextID($books_xml->xpath("/Catalog/Book"));;
 
-  echo "$author, $title, $price, $publication, $genre";
+    $book = $books_xml->addChild("Book");
+    $book->addAttribute("id", $id);
+
+    $book->addChild("Author", $author);
+    $book->addChild("Title", $title);
+    $book->addChild("Price", $price);
+    $book->addChild("PublishDate", $publication);
+    $book->addChild("Genre", $genre);
+
+    $books_xml->asXML("../XML/books.xml");
+
+    echo "";
+    
+    }else{
+      echo "DEBE RELLENAR TODOS LOS CAMPOS";
+    }
+
+  
+
 ?>

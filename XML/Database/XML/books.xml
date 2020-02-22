@@ -3,14 +3,14 @@
    <Book id="1">
       <Author>Ken Follet</Author>
       <Title>Los pilares de la tierra</Title>
-      <Genre>Novela histórica</Genre>
+      <Genre>Novela hist&#xF3;rica</Genre>
       <Price>15.99</Price>
       <PublishDate>1989</PublishDate>
    </Book>
    <Book id="2">
       <Author>Neil Gaiman</Author>
       <Title>Stardust</Title>
-      <Genre>Novel fantástica</Genre>
+      <Genre>Novel fant&#xE1;stica</Genre>
       <Price>12.99</Price>
       <PublishDate>1999</PublishDate>
    </Book>
@@ -28,4 +28,40 @@
       <Price>11.99</Price>
       <PublishDate>1986</PublishDate>
    </Book>
+   <Book id="5">
+      <Author>Joe Hill</Author>
+      <Title>Locke and Key</Title>
+      <Price>40</Price>
+      <PublishDate>2008</PublishDate>
+      <Genre>Novela grafica</Genre>
+   </Book>
+   <Book id="6">
+      <Author>Dante Alighieri</Author>
+      <Title>La divina comedia</Title>
+      <Price>15.99</Price>
+      <PublishDate>1987</PublishDate>
+      <Genre>Epopeya</Genre>
+   </Book>
+   <Book id="7">
+      <Author>Victor Hugo</Author>
+      <Title>Los miserables</Title>
+      <Price>21</Price>
+      <PublishDate>1862</PublishDate>
+      <Genre>Novela historica</Genre>
+   </Book>
+   <Book id="8">
+      <Author>Jordan B. Peterson</Author>
+      <Title>12 reglas para vivvir</Title>
+      <Price>21</Price>
+      <PublishDate>2018</PublishDate>
+      <Genre>Autoayuda</Genre>
+   </Book>
+   <Book id="9">
+      <Author>Miguel de Cervantes</Author>
+      <Title>El quijote</Title>
+      <Price>30</Price>
+      <PublishDate>1605</PublishDate>
+      <Genre>Novela historica</Genre>
+   </Book>
+   
 </Catalog>
