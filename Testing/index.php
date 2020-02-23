@@ -1,29 +1,23 @@
 <?php
-  
-  function getNextID($books_arr){
-    return $books_arr[count($books_arr)-1]->attributes() + 1;
+
+  $viviendas_doc = new DOMDocument; 
+  $viviendas_doc->load('./viviendas.xml');
+
+  $viviendas = $viviendas_doc->documentElement;
+  $list = $viviendas->getElementsByTagName('vivienda');
+
+  foreach($list as $vivienda){
+    /* $vivienda->getElementsByTagName("tipo")->item(0)->textContent = "Adosado"; */
+    if($vivienda->getElementsByTagName("extras")->item(0)->getElementsByTagName("jardin")->item(0)->textContent == "si"){
+      var_dump($vivienda);
+    }
+    /* echo $vivienda->getElementsByTagName("extras")->item(0)->getElementsByTagName("jardin")->item(0)->textContent . " "; */
   }
 
-  $author = "Joe Hill";
-  $title = "Locke and Key";
-  $price = 40;
-  $publication = 2001;
-  $genre = "Novel grafica";
+  /* $viviendas_doc->save("./viviendas.xml"); */
 
-  $books_xml = simplexml_load_file("./books.xml");
-
-  getNextID($books_xml->xpath("/Catalog/Book"));
-
-  /* $book = $books_xml->addChild("Book");
-  $book->addAttribute("id", 5);
-
-  var_dump($books_xml);
-
-  $book->addChild("Author", $author);
-  $book->addChild("Title", $title);
-  $book->addChild("Price", $price);
-  $book->addChild("PublishDate", $publication);
-  $book->addChild("Genre", $genre);
-
-  $books_xml->asXML("./books.xml"); */
+  
+  //Pruebas con SimpleXMLElement
+  /* $viviendas = new SimpleXMLElement("./viviendas.xml",null ,true);
+  echo count($viviendas); */
 ?>
