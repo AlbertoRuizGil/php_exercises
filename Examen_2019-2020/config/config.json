@@ -1,0 +1,7 @@
+{
+  "DBType": "mysql",
+  "Host": "localhost",
+  "DBName": "Inmobiliaria",
+  "User": "root",
+  "Password": ""
+}
