@@ -1,0 +1,22 @@
+<usuarios>
+  <usuario id="U1">
+    <mail>juan@gmail.com</mail>
+    <pass>1234</pass>
+    <nombreUser>Juan</nombreUser>
+  </usuario>
+  <usuario id="U2">
+    <mail>julio@educa.madrid.org</mail>
+    <pass>qwer</pass>
+    <nombreUser>Julio Iglesias</nombreUser>
+  </usuario>
+  <usuario id="U3">
+    <mail>laura@gmail.com</mail>
+    <pass>laura123</pass>
+    <nombreUser>Laura</nombreUser>
+  </usuario>
+  <usuario id="U4">
+    <mail>maria@gmail.com</mail>
+    <pass>maría123</pass>
+    <nombreUser>María López</nombreUser>
+  </usuario>
+</usuarios>
